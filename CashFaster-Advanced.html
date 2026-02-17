@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>CashFaster - تسجيل طلب قرض نقدي فوري</title>
+    <meta name="description" content="أسرع تمويل نقدي في مصر - احصل على قرض نقدي فوري بدون مصاريف وبدون تعقيدات" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border-bottom: 2px solid #D32F2F;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #D32F2F;
+            font-family: 'Playfair Display', serif;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #D32F2F;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #D32F2F;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #eeeeee;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: #D32F2F;
+            color: #ffffff;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #b71c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(211, 47, 47, 0.3);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        section h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            color: #D32F2F;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        section h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 30px 0 20px 0;
+            color: #D32F2F;
+        }
+
+        section p {
+            font-size: 16px;
+            color: #eeeeee;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        /* Stats Counter Section */
+        .stats-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 60px 0;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background-color: #0a0a0a;
+            padding: 40px;
+            border-radius: 12px;
+            border: 2px solid #D32F2F;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(211, 47, 47, 0.2);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #D32F2F, transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #D32F2F;
+            margin: 20px 0;
+            font-family: 'Playfair Display', serif;
+            animation: countUp 2s ease-out forwards;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: #eeeeee;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .stat-description {
+            font-size: 14px;
+            color: #aaaaaa;
+        }
+
+        .stat-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            background-color: #000000;
+            padding: 60px 0;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .review-card {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #D32F2F;
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #D32F2F, #ff6b6b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-left: 15px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .review-info h4 {
+            color: #ffffff;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .review-rating {
+            color: #FFD700;
+            font-size: 14px;
+        }
+
+        .review-text {
+            color: #eeeeee;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .review-date {
+            color: #aaaaaa;
+            font-size: 12px;
+        }
+
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1000;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .chat-button {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #D32F2F;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .chat-button:hover {
+            background-color: #b71c1c;
+            transform: scale(1.15);
+            box-shadow: 0 8px 20px rgba(211, 47, 47, 0.7);
+        }
+
+        .chat-button.active {
+            background-color: #b71c1c;
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 110px;
+            left: 30px;
+            width: 380px;
+            height: 550px;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            border: 2px solid #D32F2F;
+            display: none;
+            flex-direction: column;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
+            animation: slideUp 0.3s ease;
+            overflow: hidden;
+        }
+
+        .chat-window.active {
+            display: flex !important;
+        }
+
+        @keyframes slideUp {
+            from { 
+                transform: translateY(30px) scale(0.9); 
+                opacity: 0; 
+            }
+            to { 
+                transform: translateY(0) scale(1); 
+                opacity: 1; 
+            }
+        }
+
+        .chat-header {
+            background-color: #D32F2F;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 13px 13px 0 0;
+            font-weight: 700;
+            text-align: center;
+            font-size: 16px;
+            border-bottom: 3px solid #b71c1c;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background-color: #0a0a0a;
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #D32F2F;
+            border-radius: 3px;
+        }
+
+        .chat-message {
+            padding: 12px 16px;
+            border-radius: 10px;
+            max-width: 85%;
+            word-wrap: break-word;
+            font-size: 14px;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(10px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        .bot-message {
+            background-color: #2a2a2a;
+            color: #eeeeee;
+            align-self: flex-start;
+            border-left: 4px solid #D32F2F;
+        }
+
+        .user-message {
+            background-color: #D32F2F;
+            color: #ffffff;
+            align-self: flex-end;
+            border-radius: 10px;
+        }
+
+        .chat-input-area {
+            padding: 15px;
+            border-top: 2px solid #333333;
+            display: flex;
+            gap: 10px;
+            background-color: #1a1a1a;
+        }
+
+        .chat-input {
+            flex: 1;
+            background-color: #0a0a0a;
+            border: 2px solid #D32F2F;
+            color: #ffffff;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 10px rgba(211, 47, 47, 0.3);
+        }
+
+        .chat-input::placeholder {
+            color: #666666;
+        }
+
+        .chat-send {
+            background-color: #D32F2F;
+            color: #ffffff;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .chat-send:hover {
+            background-color: #b71c1c;
+            transform: scale(1.05);
+        }
+
+        .chat-send:active {
+            transform: scale(0.95);
+        }
+
+        /* List Styles */
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 15px;
+            color: #eeeeee;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* Highlight Styles */
+        strong {
+            color: #D32F2F;
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background-color: #1a1a1a;
+            border-right: 4px solid #D32F2F;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+
+        /* FAQ Styles */
+        .faq-item {
+            background-color: #1a1a1a;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #D32F2F;
+        }
+
+        .faq-item h4 {
+            color: #D32F2F;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            margin: 0;
+            font-size: 15px;
+            color: #eeeeee;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 4px solid #D32F2F;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h4 {
+            color: #D32F2F;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            color: #eeeeee;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to top, #000000, #1a1a1a);
+            border-top: 2px solid #D32F2F;
+            padding: 40px 0;
+            text-align: center;
+            color: #eeeeee;
+        }
+
+        footer p {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                margin: 5px 10px;
+                font-size: 14px;
+            }
+
+            .chat-window {
+                width: calc(100vw - 40px);
+                height: 500px;
+                left: 20px;
+                bottom: 100px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
+            .chat-button {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+        }
+
+        /* Icon Styles */
+        .icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background-color: #D32F2F;
+            color: #ffffff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">💰 CashFaster</div>
+                <nav>
+                    <a href="#home">الرئيسية</a>
+                    <a href="#stats">الإحصائيات</a>
+                    <a href="#reviews">التقييمات</a>
+                    <a href="#features">المميزات</a>
+                    <a href="#faq">الأسئلة الشائعة</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>أسرع وأسهل قرض في مصر</h1>
+            <p>احصل على قرض نقدي فوري بدون مصاريف وبدون تعقيدات</p>
+            <a href="#register" class="cta-button">سجل طلبك الآن</a>
+        </div>
+    </section>
+
+    <!-- Live Stats Section -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <h2>📊 إحصائيات حية</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 18px;">انضم إلى آلاف العملاء الراضين عن خدماتنا</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-label">إجمالي العملاء</div>
+                    <div class="stat-number" data-target="12847">0</div>
+                    <div class="stat-description">عميل استفاد من خدماتنا</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📋</div>
+                    <div class="stat-label">طلبات قيد المراجعة</div>
+                    <div class="stat-number" data-target="342">0</div>
+                    <div class="stat-description">طلب تحت المراجعة الآن</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-label">قروض موافق عليها</div>
+                    <div class="stat-number" data-target="12156">0</div>
+                    <div class="stat-description">قرض تم صرفه بنجاح</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-label">نسبة القبول</div>
+                    <div class="stat-number" data-target="94">0<span style="font-size: 36px;">%</span></div>
+                    <div class="stat-description">معدل الموافقة العالي</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-label">إجمالي التمويل</div>
+                    <div class="stat-number" data-target="2.5">0<span style="font-size: 36px;">B</span></div>
+                    <div class="stat-description">مليار جنيه تم توزيعه</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-label">متوسط وقت الموافقة</div>
+                    <div class="stat-number" data-target="24">0<span style="font-size: 36px;">h</span></div>
+                    <div class="stat-description">ساعة فقط</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <h2>⭐ تقييمات وآراء العملاء</h2>
+            <p style="text-align: center; margin-bottom: 40px; font-size: 18px;">ما يقوله عملاؤنا عن خدماتنا</p>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">أ</div>
+                        <div class="review-info">
+                            <h4>أحمد محمد</h4>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "تجربة رائعة جداً! تقديم الطلب كان سهل جداً والموافقة جاءت بسرعة. فريق الدعم احترافي جداً والتعامل معهم ممتاز. شكراً لـ CashFaster!"
+                    </div>
+                    <div class="review-date">قبل 3 أيام</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">ف</div>
+                        <div class="review-info">
+                            <h4>فاطمة علي</h4>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "لا توجد رسوم مخفية، كل شيء واضح من البداية. المندوب جاء في الموعد المحدد والعملية كانت احترافية جداً. أنصح الجميع بـ CashFaster."
+                    </div>
+                    <div class="review-date">قبل أسبوع</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">م</div>
+                        <div class="review-info">
+                            <h4>محمود حسن</h4>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "الخدمة سريعة جداً والموظفين محترفين. استقبلت القرض في أقل من 24 ساعة. أفضل تجربة قرض مررت بها. شكراً على الخدمة الممتازة!"
+                    </div>
+                    <div class="review-date">قبل أسبوعين</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">ل</div>
+                        <div class="review-info">
+                            <h4>ليلى إبراهيم</h4>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "تقديم الطلب من البيت كان مريح جداً. المندوب وصل في الموعد والتوقيع كان سريع وسهل. شكراً على الخدمة الرائعة والاحترافية!"
+                    </div>
+                    <div class="review-date">قبل 3 أسابيع</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">س</div>
+                        <div class="review-info">
+                            <h4>سارة خالد</h4>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "أفضل شيء أن الشروط واضحة جداً ومافيش رسوم مخفية. فريق الدعم رد عليّ بسرعة على كل استفسار. شكراً على الثقة والاحترافية!"
+                    </div>
+                    <div class="review-date">قبل شهر</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">ع</div>
+                        <div class="review-info">
+                            <h4>عمر السيد</h4>
+                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <div class="review-text">
+                        "تجربة احترافية من البداية للنهاية. الموافقة جاءت بسرعة والقرض وصل في الوقت المتفق عليه. أنصح الجميع بـ CashFaster بدون تردد!"
+                    </div>
+                    <div class="review-date">قبل شهر</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- No Fees Section -->
+    <section id="features">
+        <div class="container">
+            <h2>💰 مفيش رسوم</h2>
+            <p style="text-align: center; font-size: 18px; margin-bottom: 40px;">وضحناها من البداية</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>✅ مفيش رسوم إدارية</h4>
+                    <p>لا توجد أي رسوم إدارية مخفية أو إضافية على القرض الذي تتقدم عليه</p>
+                </div>
+                <div class="feature-card">
+                    <h4>✅ مفيش دفعات مقدمة</h4>
+                    <p>لا نطلب منك أي مبالغ مقدمة قبل الموافقة على طلبك</p>
+                </div>
+                <div class="feature-card">
+                    <h4>✅ مفيش شروط تعجيزية</h4>
+                    <p>شروطنا واضحة وميسرة وسهلة الفهم والتطبيق</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <h2>❓ الأسئلة الشائعة (FAQ)</h2>
+
+            <div class="faq-item">
+                <h4>1️⃣ ما هي شروط التقديم على القرض؟</h4>
+                <p><strong>السن:</strong> يجب أن يكون العميل بين 21 و 65 سنة</p>
+                <p><strong>المستندات:</strong> صورة من البطاقة الشخصية (أمامي/خلفي) وصورة سيلفي مع البطاقة</p>
+                <p><strong>المحفظة:</strong> يجب أن تكون محفظتك كاش مسجلة باسمك</p>
+                <p><strong>الضامن:</strong> يجب وجود ضامن من الدرجة الأولى (أخ، أم، زوج، إلخ)</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>2️⃣ كيف يمكنني التقديم على القرض؟</h4>
+                <p>لتقديم طلبك، يرجى تعبئة النموذج على موقعنا. بمجرد استلامنا لبياناتك، سنقوم بمراجعتها والتواصل معك في أقرب وقت</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>3️⃣ كم من الوقت يستغرق الموافقة على القرض؟</h4>
+                <p>في العادة، يتم الموافقة على القرض خلال <strong>48 ساعة</strong> بحد أقصى من تقديم الطلب</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>4️⃣ هل هناك رسوم إضافية بعد الموافقة؟</h4>
+                <p>لا توجد أي رسوم إضافية أو مصاريف أخرى بعد الموافقة على القرض</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="register" style="background-color: #1a1a1a; text-align: center; padding: 60px 0;">
+        <div class="container">
+            <h2 style="margin-bottom: 30px;">💬 عايز تبدأ؟</h2>
+            <p style="font-size: 18px; margin-bottom: 30px;">سجل طلبك الآن، وفريقنا سيقوم بمراجعة الطلب والتواصل معك في أقرب وقت</p>
+            <a href="#" class="cta-button">سجل طلبك الآن</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>CashFaster - نظام تسجيل طلبات القروض النقدية</p>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin: 20px 0;">
+                <span style="color: #D32F2F;">🔒</span>
+                <span>نظام آمن ومشفر بعناية فائقة</span>
+            </div>
+            <p>© 2026 CashFaster. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot - ADVANCED VERSION WITH COMPREHENSIVE DATABASE -->
+    <div class="chatbot-container">
+        <button class="chat-button" id="chatToggle" title="فتح الدردشة">💬</button>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">🤖 سما - مساعد CashFaster الذكي</div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot-message">
+                    مرحباً بك! 👋 أنا سما من فريق الدعم الفني في CashFaster. يمكنني الإجابة على جميع استفساراتك حول القروض والشروط والمبالغ المالية. كيف يمكنني مساعدتك؟
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chatInput" placeholder="اكتب رسالتك...">
+                <button class="chat-send" id="chatSend">إرسال</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Advanced Chat Bot with Comprehensive Database
+        const chatToggle = document.getElementById('chatToggle');
+        const chatWindow = document.getElementById('chatWindow');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+
+        // Comprehensive Bot Responses Database
+        const botResponses = {
+            // Greetings
+            'السلام عليكم': 'وعليكم السلام ورحمة الله وبركاته! 👋 أهلاً وسهلاً بك في CashFaster. كيف يمكنني مساعدتك؟',
+            'مرحبا': 'مرحباً بك! 👋 أنا سما، مساعدك الذكي في CashFaster. ما الذي تود معرفته؟',
+            'السلام': 'وعليكم السلام ورحمة الله! 🙏 أهلاً بك في CashFaster.',
+            
+            // Loan Amounts
+            'المبالغ': 'القروض المتاحة لدينا تتراوح بين:\n💰 الحد الأدنى: 30,000 جنيه\n💰 الحد الأقصى: 200,000 جنيه\nالمبلغ يتحدد حسب تقييمك المالي وقدرتك على السداد.',
+            'كم المبلغ': 'نقدم قروض من 30,000 جنيه إلى 200,000 جنيه 💰. المبلغ يعتمد على:\n✓ دخلك الشهري\n✓ قدرتك على السداد\n✓ تقييمك الائتماني',
+            'أقل مبلغ': 'أقل مبلغ قرض متاح هو 30,000 جنيه 💰',
+            'أكبر مبلغ': 'أكبر مبلغ قرض متاح هو 200,000 جنيه 💰',
+            'قرض 50000': 'قرض 50,000 جنيه متاح! 💰 يمكنك سداده على فترات من 12 إلى 60 شهراً حسب اختيارك.',
+            'قرض 100000': 'قرض 100,000 جنيه متاح! 💰 مع خيارات سداد مرنة من 12 إلى 60 شهراً.',
+            
+            // Payment Periods
+            'مدة السداد': 'مدد السداد المتاحة:\n⏱️ من 12 شهراً (سنة واحدة)\n⏱️ إلى 60 شهراً (5 سنوات)\nاختر المدة التي تناسب قدرتك المالية.',
+            'كم المدة': 'يمكنك اختيار مدة السداد من 12 شهراً إلى 60 شهراً 📅',
+            'سنة واحدة': 'نعم، يمكنك سداد القرض في 12 شهراً (سنة واحدة) 📅',
+            'خمس سنوات': 'نعم، يمكنك سداد القرض على مدار 60 شهراً (5 سنوات) 📅',
+            
+            // Conditions and Requirements
+            'الشروط': 'شروط الحصول على القرض:\n✓ السن من 21 إلى 65 سنة\n✓ بطاقة شخصية سارية\n✓ صورة سيلفي مع البطاقة\n✓ ضامن من الدرجة الأولى\n✓ محفظة كاش نشطة (فودافون أو اتصالات)',
+            'الشروط الأساسية': 'الشروط الأساسية:\n1️⃣ السن: 21-65 سنة\n2️⃣ هوية صحيحة وسارية\n3️⃣ ضامن من الدرجة الأولى\n4️⃣ محفظة إلكترونية نشطة',
+            'السن': 'يجب أن يكون سنك بين 21 و 65 سنة في وقت سداد آخر قسط 📅',
+            
+            // Documents Required
+            'المستندات': 'المستندات المطلوبة:\n📄 صورة البطاقة الشخصية (أمامي وخلفي)\n📸 صورة سيلفي وأنت تحمل البطاقة\n📋 إيصال مرافق حديث\nكل هذا لضمان أمان عمليتك!',
+            'الأوراق': 'تحتاج إلى:\n✓ بطاقة شخصية سارية\n✓ صورة سيلفي مع البطاقة\n✓ إيصال مرافق حديث',
+            'البطاقة': 'نحتاج صورة واضحة من البطاقة الشخصية (الأمام والخلف) وصورة سيلفي وأنت تحملها 📸',
+            
+            // Guarantor
+            'الضامن': 'الضامن يجب أن يكون من الدرجة الأولى:\n👨‍👩‍👧 الأخ أو الأخت\n👩 الأم أو الأب\n💑 الزوج أو الزوجة\n👶 الابن أو الابنة\nيجب تقديم ما يثبت صلة القرابة.',
+            'من يكون الضامن': 'الضامن يجب أن يكون قريب من الدرجة الأولى مثل: الأخ، الأخت، الأم، الزوج، الزوجة، الابن أو الابنة 👨‍👩‍👧',
+            
+            // Electronic Wallet
+            'المحفظة': 'يجب أن تكون لديك محفظة إلكترونية نشطة:\n📱 فودافون كاش\n📱 أو اتصالات كاش\nالمحفظة يجب أن تكون مسجلة باسمك',
+            'فودافون كاش': 'نعم، فودافون كاش من المحافظ المقبولة لدينا 📱',
+            'اتصالات كاش': 'نعم، اتصالات كاش من المحافظ المقبولة لدينا 📱',
+            
+            // Fees and Costs
+            'الرسوم': 'لا توجد أي رسوم إدارية أو دفعات مقدمة! 💰\n✓ مفيش رسوم إدارية\n✓ مفيش دفعات مقدمة\n✓ مفيش شروط تعجيزية\nالفائدة فقط مدمجة في القسط الشهري.',
+            'هل في رسوم': 'لا توجد رسوم مخفية! 🚫 كل شيء واضح من البداية. الفائدة فقط مدمجة في القسط الشهري.',
+            'رسوم إدارية': 'لا توجد رسوم إدارية نهائياً! 🚫 كل شيء شفاف وواضح.',
+            'دفعة مقدمة': 'لا نطلب أي دفعات مقدمة! 🚫 لا تدفع شيء قبل الموافقة على القرض.',
+            
+            // Approval Process
+            'الموافقة': 'مدة الموافقة:\n⏱️ في المتوسط: 24 ساعة\n⏱️ بحد أقصى: 48 ساعة\nسرعة الموافقة تعتمد على استكمال المستندات.',
+            'كم وقت الموافقة': 'الموافقة تستغرق من 24 إلى 48 ساعة كحد أقصى ⏱️',
+            'متى أعرف الموافقة': 'سنتواصل معك عبر واتساب أو الهاتف خلال 24-48 ساعة بنتيجة الموافقة 📞',
+            
+            // Application Process
+            'التقديم': 'خطوات التقديم:\n1️⃣ ادخل على الموقع واملأ النموذج\n2️⃣ أرسل المستندات المطلوبة\n3️⃣ انتظر تواصلنا معك\n4️⃣ توقيع العقد من منزلك\n5️⃣ استقبل القرض فوراً!',
+            'كيف أقدم': 'التقديم سهل جداً:\n✓ ادخل الموقع\n✓ املأ البيانات\n✓ أرسل الصور\n✓ انتظر الموافقة',
+            'خطوات التقديم': 'الخطوات:\n1️⃣ تعبئة النموذج\n2️⃣ إرسال المستندات\n3️⃣ مراجعة البيانات\n4️⃣ توقيع العقد\n5️⃣ صرف القرض',
+            
+            // After Approval
+            'بعد الموافقة': 'بعد الموافقة:\n✓ سيتواصل معك مندوب متخصص\n✓ تحديد موعد التوقيع\n✓ توقيع العقد من منزلك\n✓ استقبال القرض فوراً عبر فودافون كاش\n✓ لا حاجة للحضور أو التنقل',
+            'المندوب': 'المندوب سيصل إليك في:\n📍 منزلك\n📍 مكتبك\n📍 أي مكان تختاره\nلتوقيع العقد بسهولة وأمان 🤝',
+            'التوقيع': 'التوقيع يتم من:\n✓ منزلك\n✓ مكتبك\n✓ أي مكان تختاره\nبدون الحاجة للحضور إلى فرع 🏠',
+            
+            // Disbursement
+            'الصرف': 'صرف القرض:\n💰 يتم فوراً عبر فودافون كاش\n⚡ بعد التوقيع مباشرة\n📱 سيصل إلى محفظتك الإلكترونية\nسهل وسريع جداً!',
+            'متى أستقبل القرض': 'تستقبل القرض فوراً بعد توقيع العقد عبر فودافون كاش أو اتصالات كاش 💰',
+            'فودافون كاش': 'القرض يصل إلى محفظة فودافون كاش الخاصة بك فوراً بعد التوقيع 📱',
+            
+            // Early Payment
+            'السداد المبكر': 'نعم، يمكنك سداد القرض قبل الموعد المحدد! ✅\nالفائدة ستُحسب حتى تاريخ السداد الفعلي فقط.',
+            'سداد قبل الموعد': 'بالتأكيد! يمكنك سداد القرض في أي وقت قبل الموعد المحدد 📅',
+            
+            // Late Payment
+            'تأخر السداد': 'إذا تأخرت في السداد، قد تترتب عليك رسوم تأخير حسب الاتفاق المبرم. ⚠️\nننصحك بالسداد في الموعد المحدد.',
+            'ماذا لو تأخرت': 'إذا تأخرت في السداد، قد تترتب عليك رسوم تأخير. ننصحك بالسداد في الموعد المحدد ⏰',
+            
+            // Modification
+            'تعديل القرض': 'لا يمكن تعديل القرض بعد الموافقة عليه. 🚫\nإذا أردت مبلغاً مختلفاً أو مدة أخرى، يمكنك طلب قرض جديد.',
+            'هل أستطيع تعديل المبلغ': 'لا يمكن تعديل المبلغ بعد الموافقة. يمكنك طلب قرض جديد بمبلغ مختلف.',
+            
+            // Contact and Support
+            'الدعم': 'فريق الدعم متاح لك 24/7 📞\nتواصل معنا عبر:\n📱 واتساب\n📞 الهاتف\n💬 الدردشة الحية\nنحن هنا لمساعدتك!',
+            'كيف أتواصل': 'يمكنك التواصل معنا عبر:\n📱 واتساب\n📞 الهاتف\n💬 الدردشة الحية\nفريقنا جاهز 24/7',
+            
+            // General Questions
+            'شكراً': 'أهلاً وسهلاً! 😊 إذا كان لديك أي استفسار آخر، أنا هنا للمساعدة.',
+            'تمام': 'ممتاز! 👍 هل هناك شيء آخر يمكنني مساعدتك به؟',
+            'حاضر': 'تمام! 👍 أي استفسار آخر؟',
+            
+            // Default Response
+            'default': 'شكراً على سؤالك! 😊 للمزيد من المعلومات، يرجى التواصل مع فريق الدعم أو زيارة الموقع. هل هناك شيء آخر يمكنني مساعدتك به؟'
+        };
+
+        // Toggle Chat Window
+        chatToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            chatWindow.classList.toggle('active');
+            chatToggle.classList.toggle('active');
+            if (chatWindow.classList.contains('active')) {
+                chatInput.focus();
+            }
+        });
+
+        // Add Message to Chat
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${sender === 'bot' ? 'bot-message' : 'user-message'}`;
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Get Bot Response with Advanced Search
+        function getBotResponse(userMessage) {
+            const lowerMessage = userMessage.toLowerCase().trim();
+            
+            // Exact match first
+            for (const [key, response] of Object.entries(botResponses)) {
+                if (key !== 'default' && lowerMessage === key) {
+                    return response;
+                }
+            }
+            
+            // Partial match
+            for (const [key, response] of Object.entries(botResponses)) {
+                if (key !== 'default' && lowerMessage.includes(key)) {
+                    return response;
+                }
+            }
+            
+            // Default response
+            return botResponses.default;
+        }
+
+        // Send Message
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message) {
+                addMessage(message, 'user');
+                chatInput.value = '';
+                
+                setTimeout(() => {
+                    const botResponse = getBotResponse(message);
+                    addMessage(botResponse, 'bot');
+                }, 600);
+            }
+        }
+
+        // Send Button Click
+        chatSend.addEventListener('click', sendMessage);
+
+        // Enter Key Press
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Counter Animation
+        function animateCounter() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                if (!target) return;
+                
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current).toLocaleString('ar-EG');
+                }, 30);
+            });
+        }
+
+        // Trigger animation when page loads
+        window.addEventListener('load', animateCounter);
+
+        // Also trigger when scrolling to stats section
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.id === 'stats') {
+                    animateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.getElementById('stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
