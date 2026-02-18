@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>CashFaster - تسجيل طلب قرض نقدي فوري</title>
+    <title>CashFaster - أسرع تمويل نقدي في مصر</title>
     <meta name="description" content="أسرع تمويل نقدي في مصر - احصل على قرض نقدي فوري بدون مصاريف وبدون تعقيدات" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,36 +33,168 @@
         /* Header Styles */
         header {
             background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-            border-bottom: 2px solid #D32F2F;
-            padding: 20px 0;
+            border-bottom: 3px solid #D32F2F;
+            padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.3);
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .logo {
-            font-size: 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #D32F2F;
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px rgba(211, 47, 47, 0.5));
+        }
+
+        .logo-text {
+            font-size: 26px;
             font-weight: 800;
             color: #D32F2F;
             font-family: 'Playfair Display', serif;
+            text-shadow: 0 2px 8px rgba(211, 47, 47, 0.4);
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: #ffffff;
             text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             font-weight: 500;
+            font-size: 14px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #D32F2F, #ff6b6b);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         nav a:hover {
             color: #D32F2F;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-small {
+            background: linear-gradient(135deg, #D32F2F 0%, #ff6b6b 100%);
+            color: #ffffff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-small::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: right 0.6s ease;
+        }
+
+        .btn-small:hover::before {
+            right: 100%;
+        }
+
+        .btn-small:hover {
+            background: linear-gradient(135deg, #ff6b6b 0%, #D32F2F 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.6), 0 0 30px rgba(211, 47, 47, 0.4);
+            animation: glow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 8px 25px rgba(211, 47, 47, 0.6), 0 0 30px rgba(211, 47, 47, 0.4); }
+            50% { box-shadow: 0 8px 25px rgba(211, 47, 47, 0.8), 0 0 40px rgba(211, 47, 47, 0.6); }
+        }
+
+        /* Ramadan Banner */
+        .ramadan-banner {
+            background: linear-gradient(135deg, rgba(211, 47, 47, 0.15) 0%, rgba(255, 193, 7, 0.08) 100%);
+            border-top: 3px solid #FFD700;
+            border-bottom: 3px solid #D32F2F;
+            padding: 25px 0;
+            text-align: center;
+            animation: slideDown 0.6s ease;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.2);
+        }
+
+        @keyframes slideDown {
+            from { 
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to { 
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .ramadan-text {
+            font-size: 17px;
+            font-weight: 700;
+            color: #FFD700;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+            letter-spacing: 0.5px;
+        }
+
+        .ramadan-text span {
+            color: #D32F2F;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
 
         /* Hero Section */
@@ -70,54 +202,149 @@
             background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
             padding: 80px 0;
             text-align: center;
-            border-bottom: 1px solid #F5F5F5;
+            border-bottom: 2px solid #333333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(211, 47, 47, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 800;
-            margin-bottom: 20px;
-            color: #D32F2F;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #D32F2F 0%, #ff6b6b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-family: 'Playfair Display', serif;
+            animation: fadeInUp 0.8s ease;
+            text-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero p {
             font-size: 18px;
             color: #eeeeee;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+            letter-spacing: 0.3px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s both;
         }
 
         .cta-button {
-            background-color: #D32F2F;
+            background: linear-gradient(135deg, #D32F2F 0%, #ff6b6b 100%);
             color: #ffffff;
-            padding: 15px 40px;
+            padding: 18px 50px;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             display: inline-block;
             text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: right 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            right: 100%;
         }
 
         .cta-button:hover {
-            background-color: #b71c1c;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(211, 47, 47, 0.3);
+            background: linear-gradient(135deg, #ff6b6b 0%, #D32F2F 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(211, 47, 47, 0.6), 0 0 40px rgba(211, 47, 47, 0.5);
+            animation: fireGlow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes fireGlow {
+            0%, 100% { 
+                box-shadow: 0 12px 35px rgba(211, 47, 47, 0.6), 0 0 40px rgba(211, 47, 47, 0.5);
+            }
+            50% { 
+                box-shadow: 0 12px 35px rgba(211, 47, 47, 0.8), 0 0 50px rgba(211, 47, 47, 0.7);
+            }
+        }
+
+        .cta-button.secondary {
+            background: linear-gradient(135deg, transparent 0%, transparent 100%);
+            border: 3px solid #D32F2F;
+            color: #D32F2F;
+            box-shadow: 0 0 20px rgba(211, 47, 47, 0.2), inset 0 0 20px rgba(211, 47, 47, 0.05);
+        }
+
+        .cta-button.secondary:hover {
+            background: linear-gradient(135deg, #D32F2F 0%, #ff6b6b 100%);
+            color: #ffffff;
+            box-shadow: 0 12px 35px rgba(211, 47, 47, 0.6), 0 0 40px rgba(211, 47, 47, 0.5);
         }
 
         /* Section Styles */
         section {
-            padding: 60px 0;
-            border-bottom: 1px solid #F5F5F5;
+            padding: 70px 0;
+            border-bottom: 2px solid #333333;
         }
 
         section h2 {
-            font-size: 36px;
+            font-size: 40px;
             font-weight: 800;
-            margin-bottom: 40px;
-            color: #D32F2F;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, #D32F2F 0%, #ff6b6b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-align: center;
             font-family: 'Playfair Display', serif;
         }
@@ -125,45 +352,41 @@
         section h3 {
             font-size: 24px;
             font-weight: 700;
-            margin: 30px 0 20px 0;
+            margin: 35px 0 20px 0;
             color: #D32F2F;
         }
 
         section p {
-            font-size: 16px;
+            font-size: 15px;
             color: #eeeeee;
             margin-bottom: 15px;
-            line-height: 1.8;
+            line-height: 1.9;
         }
 
         /* Stats Counter Section */
         .stats-section {
             background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-            padding: 60px 0;
-            border-bottom: 1px solid #F5F5F5;
+            padding: 70px 0;
+            border-bottom: 2px solid #333333;
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
+            gap: 35px;
+            margin: 50px 0;
         }
 
         .stat-card {
-            background-color: #0a0a0a;
-            padding: 40px;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            padding: 45px;
+            border-radius: 15px;
             border: 2px solid #D32F2F;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(211, 47, 47, 0.2);
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.2), inset 0 0 20px rgba(211, 47, 47, 0.05);
         }
 
         .stat-card::before {
@@ -172,9 +395,9 @@
             top: 0;
             right: 0;
             width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #D32F2F, transparent);
-            animation: shimmer 2s infinite;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #D32F2F, #ff6b6b, transparent);
+            animation: shimmer 2.5s infinite;
         }
 
         @keyframes shimmer {
@@ -182,11 +405,20 @@
             50% { transform: translateX(100%); }
         }
 
+        .stat-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 40px rgba(211, 47, 47, 0.4), 0 0 30px rgba(211, 47, 47, 0.3);
+            border-color: #ff6b6b;
+        }
+
         .stat-number {
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 800;
-            color: #D32F2F;
-            margin: 20px 0;
+            background: linear-gradient(135deg, #D32F2F 0%, #ff6b6b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 25px 0;
             font-family: 'Playfair Display', serif;
             animation: countUp 2s ease-out forwards;
         }
@@ -197,10 +429,10 @@
         }
 
         .stat-label {
-            font-size: 18px;
+            font-size: 17px;
             color: #eeeeee;
-            font-weight: 600;
-            margin-bottom: 10px;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
 
         .stat-description {
@@ -209,34 +441,107 @@
         }
 
         .stat-icon {
-            font-size: 40px;
+            font-size: 45px;
             margin-bottom: 15px;
+        }
+
+        /* Features Section */
+        .features-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 70px 0;
+            border-bottom: 2px solid #333333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            padding: 40px;
+            border-radius: 15px;
+            border: 2px solid #333333;
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(211, 47, 47, 0.1) 0%, transparent 70%);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover {
+            border-color: #D32F2F;
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(211, 47, 47, 0.25), 0 0 25px rgba(211, 47, 47, 0.15);
+        }
+
+        .feature-card:hover::before {
+            top: -25%;
+            right: -25%;
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #D32F2F;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #aaaaaa;
         }
 
         /* Reviews Section */
         .reviews-section {
             background-color: #000000;
-            padding: 60px 0;
-            border-bottom: 1px solid #F5F5F5;
+            padding: 70px 0;
+            border-bottom: 2px solid #333333;
         }
 
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
+            gap: 35px;
+            margin: 50px 0;
         }
 
         .review-card {
-            background-color: #1a1a1a;
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 4px solid #D32F2F;
-            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 35px;
+            border-radius: 15px;
+            border-left: 5px solid #D32F2F;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(211, 47, 47, 0.1);
         }
 
         .review-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(211, 47, 47, 0.25);
+            border-left-color: #ff6b6b;
         }
 
         .review-header {
@@ -246,8 +551,8 @@
         }
 
         .review-avatar {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             background: linear-gradient(135deg, #D32F2F, #ff6b6b);
             display: flex;
@@ -257,6 +562,7 @@
             margin-left: 15px;
             color: #ffffff;
             font-weight: 700;
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
         }
 
         .review-info h4 {
@@ -272,7 +578,7 @@
 
         .review-text {
             color: #eeeeee;
-            font-size: 15px;
+            font-size: 14px;
             line-height: 1.8;
             margin-bottom: 15px;
         }
@@ -292,43 +598,50 @@
         }
 
         .chat-button {
-            width: 70px;
-            height: 70px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
-            background-color: #D32F2F;
+            background: linear-gradient(135deg, #D32F2F 0%, #ff6b6b 100%);
             border: none;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.5);
-            transition: all 0.3s ease;
+            font-size: 36px;
+            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.5), 0 0 30px rgba(211, 47, 47, 0.3);
+            transition: all 0.4s ease;
+            animation: float-button 3s ease-in-out infinite;
+        }
+
+        @keyframes float-button {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .chat-button:hover {
-            background-color: #b71c1c;
-            transform: scale(1.15);
-            box-shadow: 0 8px 20px rgba(211, 47, 47, 0.7);
+            background: linear-gradient(135deg, #ff6b6b 0%, #D32F2F 100%);
+            transform: scale(1.2);
+            box-shadow: 0 10px 30px rgba(211, 47, 47, 0.7), 0 0 40px rgba(211, 47, 47, 0.5);
+            animation: none;
         }
 
         .chat-button.active {
-            background-color: #b71c1c;
+            background: linear-gradient(135deg, #ff6b6b 0%, #D32F2F 100%);
         }
 
         .chat-window {
             position: fixed;
-            bottom: 110px;
+            bottom: 120px;
             left: 30px;
             width: 380px;
             height: 550px;
-            background-color: #1a1a1a;
-            border-radius: 15px;
-            border: 2px solid #D32F2F;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border-radius: 18px;
+            border: 3px solid #D32F2F;
             display: none;
             flex-direction: column;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
-            animation: slideUp 0.3s ease;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(211, 47, 47, 0.4);
+            animation: slideUp 0.4s ease;
             overflow: hidden;
         }
 
@@ -338,7 +651,7 @@
 
         @keyframes slideUp {
             from { 
-                transform: translateY(30px) scale(0.9); 
+                transform: translateY(50px) scale(0.9); 
                 opacity: 0; 
             }
             to { 
@@ -348,14 +661,22 @@
         }
 
         .chat-header {
-            background-color: #D32F2F;
+            background: linear-gradient(135deg, #D32F2F 0%, #ff6b6b 100%);
             color: #ffffff;
-            padding: 20px;
-            border-radius: 13px 13px 0 0;
+            padding: 22px;
+            border-radius: 15px 15px 0 0;
             font-weight: 700;
             text-align: center;
-            font-size: 16px;
+            font-size: 17px;
             border-bottom: 3px solid #b71c1c;
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+        }
+
+        .chat-header-name {
+            font-size: 13px;
+            opacity: 0.95;
+            margin-top: 5px;
+            font-weight: 600;
         }
 
         .chat-messages {
@@ -365,55 +686,31 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            background-color: #0a0a0a;
-        }
-
-        .chat-messages::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .chat-messages::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-
-        .chat-messages::-webkit-scrollbar-thumb {
-            background: #D32F2F;
-            border-radius: 3px;
         }
 
         .chat-message {
-            padding: 12px 16px;
-            border-radius: 10px;
+            padding: 12px 15px;
+            border-radius: 12px;
             max-width: 85%;
             word-wrap: break-word;
-            font-size: 14px;
-            line-height: 1.5;
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { 
-                opacity: 0; 
-                transform: translateY(10px);
-            }
-            to { 
-                opacity: 1; 
-                transform: translateY(0);
-            }
-        }
-
-        .bot-message {
-            background-color: #2a2a2a;
-            color: #eeeeee;
-            align-self: flex-start;
-            border-left: 4px solid #D32F2F;
+            font-size: 13px;
+            line-height: 1.6;
         }
 
         .user-message {
-            background-color: #D32F2F;
+            background: linear-gradient(135deg, #D32F2F 0%, #ff6b6b 100%);
             color: #ffffff;
+            align-self: flex-start;
+            border-radius: 12px 12px 12px 0;
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+        }
+
+        .bot-message {
+            background-color: #0a0a0a;
+            color: #eeeeee;
             align-self: flex-end;
-            border-radius: 10px;
+            border: 2px solid #333333;
+            border-radius: 12px 12px 0 12px;
         }
 
         .chat-input-area {
@@ -421,309 +718,249 @@
             border-top: 2px solid #333333;
             display: flex;
             gap: 10px;
-            background-color: #1a1a1a;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
         }
 
         .chat-input {
             flex: 1;
             background-color: #0a0a0a;
-            border: 2px solid #D32F2F;
             color: #ffffff;
+            border: 2px solid #333333;
+            border-radius: 10px;
             padding: 12px 15px;
-            border-radius: 8px;
             font-family: 'Cairo', sans-serif;
-            font-size: 14px;
-            transition: border-color 0.3s ease;
+            font-size: 13px;
+            outline: none;
+            transition: all 0.3s ease;
         }
 
         .chat-input:focus {
-            outline: none;
-            border-color: #ff6b6b;
-            box-shadow: 0 0 10px rgba(211, 47, 47, 0.3);
-        }
-
-        .chat-input::placeholder {
-            color: #666666;
+            border-color: #D32F2F;
+            box-shadow: 0 0 15px rgba(211, 47, 47, 0.3);
         }
 
         .chat-send {
-            background-color: #D32F2F;
+            background: linear-gradient(135deg, #D32F2F 0%, #ff6b6b 100%);
             color: #ffffff;
             border: none;
-            padding: 12px 18px;
-            border-radius: 8px;
+            border-radius: 10px;
+            padding: 12px 20px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
-            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
         }
 
         .chat-send:hover {
-            background-color: #b71c1c;
-            transform: scale(1.05);
-        }
-
-        .chat-send:active {
-            transform: scale(0.95);
-        }
-
-        /* List Styles */
-        ul, ol {
-            margin-left: 30px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 15px;
-            color: #eeeeee;
-            font-size: 16px;
-            line-height: 1.8;
-        }
-
-        /* Highlight Styles */
-        strong {
-            color: #D32F2F;
-            font-weight: 700;
-        }
-
-        .highlight-box {
-            background-color: #1a1a1a;
-            border-right: 4px solid #D32F2F;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-
-        .highlight-box p {
-            margin: 0;
-        }
-
-        /* FAQ Styles */
-        .faq-item {
-            background-color: #1a1a1a;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #D32F2F;
-        }
-
-        .faq-item h4 {
-            color: #D32F2F;
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .faq-item p {
-            margin: 0;
-            font-size: 15px;
-            color: #eeeeee;
-        }
-
-        /* Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .feature-card {
-            background-color: #1a1a1a;
-            padding: 30px;
-            border-radius: 8px;
-            border-top: 4px solid #D32F2F;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-card h4 {
-            color: #D32F2F;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .feature-card p {
-            font-size: 15px;
-            color: #eeeeee;
-            margin: 0;
+            background: linear-gradient(135deg, #ff6b6b 0%, #D32F2F 100%);
+            box-shadow: 0 6px 18px rgba(211, 47, 47, 0.5);
+            transform: translateY(-2px);
         }
 
         /* Footer */
         footer {
-            background: linear-gradient(to top, #000000, #1a1a1a);
-            border-top: 2px solid #D32F2F;
-            padding: 40px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 50px 0;
+            border-top: 3px solid #D32F2F;
             text-align: center;
-            color: #eeeeee;
+            box-shadow: 0 -4px 15px rgba(211, 47, 47, 0.2);
         }
 
         footer p {
-            margin: 10px 0;
+            color: #aaaaaa;
             font-size: 14px;
+            margin-bottom: 10px;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            section h2 {
-                font-size: 28px;
-            }
-
             .header-content {
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
             }
 
             nav {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
             }
 
-            nav a {
-                margin: 5px 10px;
-                font-size: 14px;
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-button {
+                width: 100%;
             }
 
             .chat-window {
-                width: calc(100vw - 40px);
-                height: 500px;
+                width: calc(100% - 40px);
+                height: 450px;
                 left: 20px;
                 bottom: 100px;
             }
 
+            section h2 {
+                font-size: 32px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
             .stat-number {
-                font-size: 36px;
-            }
-
-            .chat-button {
-                width: 60px;
-                height: 60px;
-                font-size: 28px;
+                font-size: 42px;
             }
         }
 
-        /* Icon Styles */
-        .icon {
-            font-size: 24px;
-            margin-right: 10px;
+        /* Scroll Bar */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
         }
 
-        .step-number {
-            display: inline-block;
-            background-color: #D32F2F;
-            color: #ffffff;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
-            font-weight: 700;
-            margin-left: 10px;
+        .chat-messages::-webkit-scrollbar-track {
+            background: #0a0a0a;
+            border-radius: 10px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #D32F2F, #ff6b6b);
+            border-radius: 10px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #ff6b6b, #D32F2F);
         }
     </style>
 </head>
 <body>
+    <!-- Ramadan Banner -->
+    <div class="ramadan-banner">
+        <div class="container">
+            <p class="ramadan-text">🌙 عرض خاص لشهر رمضان المبارك - <span>احصل على قرضك بسهولة وأمان وثقة</span> 🌙</p>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">💰 CashFaster</div>
+                <a href="#" class="logo">
+                    <img src="https://private-us-east-1.manuscdn.com/sessionFile/SwgZoEfNGYXnFSZ9zjEzJu/sandbox/ynLHdfRmcVPf2A7eEVcTsg-img-1_1771410618000_na1fn_Y2FzaC1mYXN0ZXItbG9nbw.png?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvU3dnWm9FZk5HWVhuRlNaOXpqRXpKdS9zYW5kYm94L3luTEhkZlJtY1ZQZjJBN2VFVmNUc2ctaW1nLTFfMTc3MTQxMDYxODAwMF9uYTFmbl9ZMkZ6YUMxbVlYTjBaWEl0Ykc5bmJ3LnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE5MjAsaF8xOTIwL2Zvcm1hdCx3ZWJwL3F1YWxpdHkscV84MCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc5ODc2MTYwMH19fV19&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=OW3EU7eIcgJxVUEU6gi~~9fZo4yruJSPcHjSTOr3gHFGoRMMGKf3bnwvnXKe9jNBS09xxb5eEYHRh3xXbwBTSsNvESm1dkDrT9Vsg3YRT8XbTrH7h66c7X0dQ3bhVGiQdS3~W-vtUceknP3d3iRuuQg7E10VCpN3uTqHD5xYfh9G3tsEVuAJXHiEtQ0Pj4dgOUfZxGJEQmF4rk~nFdibWomdG62MJ3sYmIGS3D9kK6Nqrl~w0qde5BgpQPl3Z1O0cDBbD-3uqOChl~W7jbBnCc7BJcIvebOZ6yP933ffrUhj2rkZeIQWamp5mkvIfASofeat6i3YYT6Y-EWodOtEDQ__" alt="Cash Faster Logo" class="logo-img">
+                    <span class="logo-text">Cash Faster</span>
+                </a>
                 <nav>
-                    <a href="#home">الرئيسية</a>
+                    <a href="#features">المميزات</a>
                     <a href="#stats">الإحصائيات</a>
                     <a href="#reviews">التقييمات</a>
-                    <a href="#features">المميزات</a>
-                    <a href="#faq">الأسئلة الشائعة</a>
+                    <a href="#about">عن الشركة</a>
                 </nav>
+                <div class="nav-buttons">
+                    <a href="https://survey.porsline.com/s/5E2yn3lq" class="btn-small">قدم الآن</a>
+                    <a href="https://bk0212937-netizen.github.io/Transfer-money-/" class="btn-small">استعلم عن طلبك</a>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-<section id="home" class="hero">
-    <div class="container">
-        <h1>أسرع وأسهل قرض في مصر</h1>
-        <p>احصل على قرض نقدي فوري بدون مصاريف وبدون تعقيدات</p>
-        <a href="https://survey.porsline.com/s/C1TC0MIs" target="_blank" class="cta-button">سجل طلبك الآن</a>
-    </div>
-</section>
-
-<!-- Final CTA Section -->
-<section id="register" style="background-color: #1a1a1a; text-align: center; padding: 60px 0;">
-    <div class="container">
-        <h2 style="margin-bottom: 30px;">💬 عايز تبدأ؟</h2>
-        <p style="font-size: 18px; margin-bottom: 30px;">سجل طلبك الآن، وفريقنا سيقوم بمراجعة الطلب والتواصل معك في أقرب وقت</p>
-        <a href="https://survey.porsline.com/s/C1TC0MIs" target="_blank" class="cta-button">سجل طلبك الآن</a>
-    </div>
-</section>
-
-    <!-- Live Stats Section -->
-    <section id="stats" class="stats-section">
+    <section class="hero">
         <div class="container">
-            <h2>📊 إحصائيات حية</h2>
-            <p style="text-align: center; margin-bottom: 40px; font-size: 18px;">انضم إلى آلاف العملاء الراضين عن خدماتنا</p>
-            
+            <div class="hero-content">
+                <h1>أسرع تمويل نقدي في مصر 💰</h1>
+                <p>احصل على قرض نقدي فوري بدون مصاريف مقدمة وبدون تعقيدات - من 30,000 إلى 200,000 جنيه</p>
+                <div class="cta-buttons">
+                    <a href="https://survey.porsline.com/s/5E2yn3lq" class="cta-button">قدم طلبك الآن</a>
+                    <a href="https://bk0212937-netizen.github.io/Transfer-money-/" class="cta-button secondary">استعلم عن حالتك</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2>لماذا تختار Cash Faster؟</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>سرعة فائقة</h3>
+                    <p>استلم قرضك خلال 48 ساعة فقط من الموافقة على طلبك</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💯</div>
+                    <h3>بدون مصاريف</h3>
+                    <p>لا توجد أي رسوم إضافية أو مصاريف مقدمة - شفافية تامة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>آمان وثقة</h3>
+                    <p>عمليات رسمية وآمنة مع أعلى معايير الحماية والسرية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>تحويل فوري</h3>
+                    <p>استقبل أموالك مباشرة عبر محفظتك الإلكترونية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>مرونة في السداد</h3>
+                    <p>فترات سداد تصل إلى 60 شهر حسب احتياجاتك</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>إجراءات بسيطة</h3>
+                    <p>لا حاجة لمشاوير أو مستندات معقدة - كل شيء أونلاين</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section" id="stats">
+        <div class="container">
+            <h2>أرقام تتحدث عن نجاحنا</h2>
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-icon">👥</div>
-                    <div class="stat-label">إجمالي العملاء</div>
-                    <div class="stat-number" data-target="12847">0</div>
-                    <div class="stat-description">عميل استفاد من خدماتنا</div>
+                    <div class="stat-number" data-target="15000">0</div>
+                    <div class="stat-label">عميل راضي</div>
+                    <div class="stat-description">عملاء استفادوا من خدماتنا</div>
                 </div>
-
-                <div class="stat-card">
-                    <div class="stat-icon">📋</div>
-                    <div class="stat-label">طلبات قيد المراجعة</div>
-                    <div class="stat-number" data-target="342">0</div>
-                    <div class="stat-description">طلب تحت المراجعة الآن</div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-icon">✅</div>
-                    <div class="stat-label">قروض موافق عليها</div>
-                    <div class="stat-number" data-target="12156">0</div>
-                    <div class="stat-description">قرض تم صرفه بنجاح</div>
-                </div>
-
-                <div class="stat-card">
-                    <div class="stat-icon">📈</div>
-                    <div class="stat-label">نسبة القبول</div>
-                    <div class="stat-number" data-target="94">0<span style="font-size: 36px;">%</span></div>
-                    <div class="stat-description">معدل الموافقة العالي</div>
-                </div>
-
                 <div class="stat-card">
                     <div class="stat-icon">💰</div>
-                    <div class="stat-label">إجمالي التمويل</div>
-                    <div class="stat-number" data-target="2.5">0<span style="font-size: 36px;">B</span></div>
-                    <div class="stat-description">مليار جنيه تم توزيعه</div>
+                    <div class="stat-number" data-target="500">0</div>
+                    <div class="stat-label">مليون جنيه</div>
+                    <div class="stat-description">إجمالي التمويل المقدم</div>
                 </div>
-
                 <div class="stat-card">
-                    <div class="stat-icon">⏱️</div>
-                    <div class="stat-label">متوسط وقت الموافقة</div>
-                    <div class="stat-number" data-target="24">0<span style="font-size: 36px;">h</span></div>
-                    <div class="stat-description">ساعة فقط</div>
+                    <div class="stat-icon">⭐</div>
+                    <div class="stat-number" data-target="48">0</div>
+                    <div class="stat-label">ساعة</div>
+                    <div class="stat-description">متوسط وقت الموافقة</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏆</div>
+                    <div class="stat-number" data-target="99">0</div>
+                    <div class="stat-label">%</div>
+                    <div class="stat-description">معدل رضا العملاء</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Reviews Section -->
-    <section id="reviews" class="reviews-section">
+    <section class="reviews-section" id="reviews">
         <div class="container">
-            <h2>⭐ تقييمات وآراء العملاء</h2>
-            <p style="text-align: center; margin-bottom: 40px; font-size: 18px;">ما يقوله عملاؤنا عن خدماتنا</p>
-            
+            <h2>تقييمات عملائنا</h2>
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="review-header">
@@ -733,12 +970,9 @@
                             <div class="review-rating">⭐⭐⭐⭐⭐</div>
                         </div>
                     </div>
-                    <div class="review-text">
-                        "تجربة رائعة جداً! تقديم الطلب كان سهل جداً والموافقة جاءت بسرعة. فريق الدعم احترافي جداً والتعامل معهم ممتاز. شكراً لـ CashFaster!"
-                    </div>
-                    <div class="review-date">قبل 3 أيام</div>
+                    <p class="review-text">خدمة ممتازة وسريعة جداً. استقبلت القرض في أقل من 48 ساعة. شكراً لكم على الثقة والأمان والمصداقية.</p>
+                    <div class="review-date">منذ أسبوع</div>
                 </div>
-
                 <div class="review-card">
                     <div class="review-header">
                         <div class="review-avatar">ف</div>
@@ -747,12 +981,9 @@
                             <div class="review-rating">⭐⭐⭐⭐⭐</div>
                         </div>
                     </div>
-                    <div class="review-text">
-                        "لا توجد رسوم مخفية، كل شيء واضح من البداية. المندوب جاء في الموعد المحدد والعملية كانت احترافية جداً. أنصح الجميع بـ CashFaster."
-                    </div>
-                    <div class="review-date">قبل أسبوع</div>
+                    <p class="review-text">تجربة رائعة من البداية للنهاية. الموظفون متعاونون جداً والإجراءات بسيطة وسهلة وآمنة جداً.</p>
+                    <div class="review-date">منذ أسبوعين</div>
                 </div>
-
                 <div class="review-card">
                     <div class="review-header">
                         <div class="review-avatar">م</div>
@@ -761,245 +992,114 @@
                             <div class="review-rating">⭐⭐⭐⭐⭐</div>
                         </div>
                     </div>
-                    <div class="review-text">
-                        "الخدمة سريعة جداً والموظفين محترفين. استقبلت القرض في أقل من 24 ساعة. أفضل تجربة قرض مررت بها. شكراً على الخدمة الممتازة!"
-                    </div>
-                    <div class="review-date">قبل أسبوعين</div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">ل</div>
-                        <div class="review-info">
-                            <h4>ليلى إبراهيم</h4>
-                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
-                        </div>
-                    </div>
-                    <div class="review-text">
-                        "تقديم الطلب من البيت كان مريح جداً. المندوب وصل في الموعد والتوقيع كان سريع وسهل. شكراً على الخدمة الرائعة والاحترافية!"
-                    </div>
-                    <div class="review-date">قبل 3 أسابيع</div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">س</div>
-                        <div class="review-info">
-                            <h4>سارة خالد</h4>
-                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
-                        </div>
-                    </div>
-                    <div class="review-text">
-                        "أفضل شيء أن الشروط واضحة جداً ومافيش رسوم مخفية. فريق الدعم رد عليّ بسرعة على كل استفسار. شكراً على الثقة والاحترافية!"
-                    </div>
-                    <div class="review-date">قبل شهر</div>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-avatar">ع</div>
-                        <div class="review-info">
-                            <h4>عمر السيد</h4>
-                            <div class="review-rating">⭐⭐⭐⭐⭐</div>
-                        </div>
-                    </div>
-                    <div class="review-text">
-                        "تجربة احترافية من البداية للنهاية. الموافقة جاءت بسرعة والقرض وصل في الوقت المتفق عليه. أنصح الجميع بـ CashFaster بدون تردد!"
-                    </div>
-                    <div class="review-date">قبل شهر</div>
+                    <p class="review-text">أفضل خدمة تمويل استخدمتها. بدون مصاريف مقدمة وبدون تعقيدات. موصى به بقوة لكل من يحتاج تمويل سريع!</p>
+                    <div class="review-date">منذ شهر</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- No Fees Section -->
-    <section id="features">
+    <!-- About Section -->
+    <section id="about">
         <div class="container">
-            <h2>💰 مفيش رسوم</h2>
-            <p style="text-align: center; font-size: 18px; margin-bottom: 40px;">وضحناها من البداية</p>
+            <h2>عن Cash Faster</h2>
             
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h4>✅ مفيش رسوم إدارية</h4>
-                    <p>لا توجد أي رسوم إدارية مخفية أو إضافية على القرض الذي تتقدم عليه</p>
-                </div>
-                <div class="feature-card">
-                    <h4>✅ مفيش دفعات مقدمة</h4>
-                    <p>لا نطلب منك أي مبالغ مقدمة قبل الموافقة على طلبك</p>
-                </div>
-                <div class="feature-card">
-                    <h4>✅ مفيش شروط تعجيزية</h4>
-                    <p>شروطنا واضحة وميسرة وسهلة الفهم والتطبيق</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <h3>💼 من نحن</h3>
+            <p>Cash Faster هي شركة متخصصة في تقديم حلول تمويل نقدي سريعة وآمنة في مصر. نؤمن بأن كل شخص يستحق فرصة للحصول على التمويل الذي يحتاجه بسهولة وبدون تعقيدات. نساعدك في "تحويل" الأجهزة الكهربائية ورقياً فقط، بحيث يتم تسجيل اسمك كمشتري، ولكن الفلوس بتوصل لك مباشرة دون الحاجة لاستلام الجهاز.</p>
+            
+            <h3>🎯 رؤيتنا</h3>
+            <p>أن نكون الخيار الأول والموثوق به للتمويل النقدي السريع في مصر، من خلال تقديم خدمات عالية الجودة بأسعار عادلة وشفافة وآمنة.</p>
+            
+            <h3>✅ شروط الحصول على القرض</h3>
+            <p><strong>السن:</strong> من 21 إلى 65 سنة</p>
+            <p><strong>المستندات:</strong> بطاقة هوية سارية + صورة سيلفي مع البطاقة</p>
+            <p><strong>الضامن:</strong> يجب وجود ضامن من الدرجة الأولى (أخ، أم، زوج، إلخ)</p>
+            <p><strong>المحفظة الإلكترونية:</strong> فودافون كاش أو اتصالات كاش</p>
+            <p><strong>مبلغ القرض:</strong> من 30,000 إلى 200,000 جنيه</p>
+            <p><strong>مدة السداد:</strong> من 12 إلى 60 شهر</p>
 
-    <!-- FAQ Section -->
-    <section id="faq">
-        <div class="container">
-            <h2>❓ الأسئلة الشائعة (FAQ)</h2>
-
-            <div class="faq-item">
-                <h4>1️⃣ ما هي شروط التقديم على القرض؟</h4>
-                <p><strong>السن:</strong> يجب أن يكون العميل بين 21 و 65 سنة</p>
-                <p><strong>المستندات:</strong> صورة من البطاقة الشخصية (أمامي/خلفي) وصورة سيلفي مع البطاقة</p>
-                <p><strong>المحفظة:</strong> يجب أن تكون محفظتك كاش مسجلة باسمك</p>
-                <p><strong>الضامن:</strong> يجب وجود ضامن من الدرجة الأولى (أخ، أم، زوج، إلخ)</p>
-            </div>
-
-            <div class="faq-item">
-                <h4>2️⃣ كيف يمكنني التقديم على القرض؟</h4>
-                <p>لتقديم طلبك، يرجى تعبئة النموذج على موقعنا. بمجرد استلامنا لبياناتك، سنقوم بمراجعتها والتواصل معك في أقرب وقت</p>
-            </div>
-
-            <div class="faq-item">
-                <h4>3️⃣ كم من الوقت يستغرق الموافقة على القرض؟</h4>
-                <p>في العادة، يتم الموافقة على القرض خلال <strong>48 ساعة</strong> بحد أقصى من تقديم الطلب</p>
-            </div>
-
-            <div class="faq-item">
-                <h4>4️⃣ هل هناك رسوم إضافية بعد الموافقة؟</h4>
-                <p>لا توجد أي رسوم إضافية أو مصاريف أخرى بعد الموافقة على القرض</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section id="register" style="background-color: #1a1a1a; text-align: center; padding: 60px 0;">
-        <div class="container">
-            <h2 style="margin-bottom: 30px;">💬 عايز تبدأ؟</h2>
-            <p style="font-size: 18px; margin-bottom: 30px;">سجل طلبك الآن، وفريقنا سيقوم بمراجعة الطلب والتواصل معك في أقرب وقت</p>
-            <a href="#" class="cta-button">سجل طلبك الآن</a>
+            <h3>❓ الأسئلة الشائعة</h3>
+            <p><strong>س: كم من الوقت يستغرق الموافقة على القرض؟</strong></p>
+            <p>ج: عادة ما يتم الموافقة خلال 48 ساعة من تقديم الطلب الكامل.</p>
+            
+            <p><strong>س: هل هناك رسوم إضافية؟</strong></p>
+            <p>ج: لا توجد أي رسوم إضافية أو مصاريف مقدمة. الفائدة فقط مدمجة في القسط الشهري.</p>
+            
+            <p><strong>س: هل يمكنني سداد القرض قبل الموعد؟</strong></p>
+            <p>ج: نعم، يمكنك سداد القرض في أي وقت قبل الموعد المحدد!</p>
+            
+            <p><strong>س: كيف يتم استلام القرض؟</strong></p>
+            <p>ج: يتم تحويل القرض مباشرة إلى محفظتك الإلكترونية (فودافون كاش أو اتصالات كاش).</p>
+            
+            <p><strong>س: ما هي خطوات التقديم؟</strong></p>
+            <p>ج: 1. قدم طلبك عبر النموذج 2. انتظر مراجعة الطلب 3. تواصل معك فريقنا 4. استلم القرض في حسابك</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>CashFaster - نظام تسجيل طلبات القروض النقدية</p>
-            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin: 20px 0;">
-                <span style="color: #D32F2F;">🔒</span>
-                <span>نظام آمن ومشفر بعناية فائقة</span>
-            </div>
-            <p>© 2026 CashFaster. جميع الحقوق محفوظة.</p>
+            <p>&copy; 2026 Cash Faster - أسرع تمويل نقدي في مصر. جميع الحقوق محفوظة.</p>
+            <p style="margin-top: 10px; font-size: 13px;">نحن نلتزم بأعلى معايير الأمان والسرية والشفافية والمصداقية</p>
         </div>
     </footer>
 
-    <!-- Chatbot - ADVANCED VERSION WITH COMPREHENSIVE DATABASE -->
+    <!-- Chatbot -->
     <div class="chatbot-container">
-        <button class="chat-button" id="chatToggle" title="فتح الدردشة">💬</button>
+        <button class="chat-button" id="chatToggle">💬</button>
         <div class="chat-window" id="chatWindow">
-            <div class="chat-header">🤖 سما - مساعد CashFaster الذكي</div>
+            <div class="chat-header">
+                نانسي فرحات 👋
+                <div class="chat-header-name">مساعدتك الشخصية</div>
+            </div>
             <div class="chat-messages" id="chatMessages">
                 <div class="chat-message bot-message">
-                    مرحباً بك! 👋 أنا سما من فريق الدعم الفني في CashFaster. يمكنني الإجابة على جميع استفساراتك حول القروض والشروط والمبالغ المالية. كيف يمكنني مساعدتك؟
+                    مرحباً! 👋 أنا نانسي فرحات، مساعدتك الشخصية في Cash Faster. كيف يمكنني مساعدتك اليوم؟
                 </div>
             </div>
             <div class="chat-input-area">
-                <input type="text" class="chat-input" id="chatInput" placeholder="اكتب رسالتك...">
+                <input type="text" class="chat-input" id="chatInput" placeholder="اكتب سؤالك هنا..." />
                 <button class="chat-send" id="chatSend">إرسال</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Advanced Chat Bot with Comprehensive Database
+        // Chatbot Elements
         const chatToggle = document.getElementById('chatToggle');
         const chatWindow = document.getElementById('chatWindow');
         const chatMessages = document.getElementById('chatMessages');
         const chatInput = document.getElementById('chatInput');
         const chatSend = document.getElementById('chatSend');
 
-        // Comprehensive Bot Responses Database
+        // Bot Responses Database - قاعدة بيانات شاملة
         const botResponses = {
-            // Greetings
-            'السلام عليكم': 'وعليكم السلام ورحمة الله وبركاته! 👋 أهلاً وسهلاً بك في CashFaster. كيف يمكنني مساعدتك؟',
-            'مرحبا': 'مرحباً بك! 👋 أنا سما، مساعدك الذكي في CashFaster. ما الذي تود معرفته؟',
-            'السلام': 'وعليكم السلام ورحمة الله! 🙏 أهلاً بك في CashFaster.',
-            
-            // Loan Amounts
-            'المبالغ': 'القروض المتاحة لدينا تتراوح بين:\n💰 الحد الأدنى: 30,000 جنيه\n💰 الحد الأقصى: 200,000 جنيه\nالمبلغ يتحدد حسب تقييمك المالي وقدرتك على السداد.',
-            'كم المبلغ': 'نقدم قروض من 30,000 جنيه إلى 200,000 جنيه 💰. المبلغ يعتمد على:\n✓ دخلك الشهري\n✓ قدرتك على السداد\n✓ تقييمك الائتماني',
-            'أقل مبلغ': 'أقل مبلغ قرض متاح هو 30,000 جنيه 💰',
-            'أكبر مبلغ': 'أكبر مبلغ قرض متاح هو 200,000 جنيه 💰',
-            'قرض 50000': 'قرض 50,000 جنيه متاح! 💰 يمكنك سداده على فترات من 12 إلى 60 شهراً حسب اختيارك.',
-            'قرض 100000': 'قرض 100,000 جنيه متاح! 💰 مع خيارات سداد مرنة من 12 إلى 60 شهراً.',
-            
-            // Payment Periods
-            'مدة السداد': 'مدد السداد المتاحة:\n⏱️ من 12 شهراً (سنة واحدة)\n⏱️ إلى 60 شهراً (5 سنوات)\nاختر المدة التي تناسب قدرتك المالية.',
-            'كم المدة': 'يمكنك اختيار مدة السداد من 12 شهراً إلى 60 شهراً 📅',
-            'سنة واحدة': 'نعم، يمكنك سداد القرض في 12 شهراً (سنة واحدة) 📅',
-            'خمس سنوات': 'نعم، يمكنك سداد القرض على مدار 60 شهراً (5 سنوات) 📅',
-            
-            // Conditions and Requirements
-            'الشروط': 'شروط الحصول على القرض:\n✓ السن من 21 إلى 65 سنة\n✓ بطاقة شخصية سارية\n✓ صورة سيلفي مع البطاقة\n✓ ضامن من الدرجة الأولى\n✓ محفظة كاش نشطة (فودافون أو اتصالات)',
-            'الشروط الأساسية': 'الشروط الأساسية:\n1️⃣ السن: 21-65 سنة\n2️⃣ هوية صحيحة وسارية\n3️⃣ ضامن من الدرجة الأولى\n4️⃣ محفظة إلكترونية نشطة',
-            'السن': 'يجب أن يكون سنك بين 21 و 65 سنة في وقت سداد آخر قسط 📅',
-            
-            // Documents Required
-            'المستندات': 'المستندات المطلوبة:\n📄 صورة البطاقة الشخصية (أمامي وخلفي)\n📸 صورة سيلفي وأنت تحمل البطاقة\n📋 إيصال مرافق حديث\nكل هذا لضمان أمان عمليتك!',
-            'الأوراق': 'تحتاج إلى:\n✓ بطاقة شخصية سارية\n✓ صورة سيلفي مع البطاقة\n✓ إيصال مرافق حديث',
-            'البطاقة': 'نحتاج صورة واضحة من البطاقة الشخصية (الأمام والخلف) وصورة سيلفي وأنت تحملها 📸',
-            
-            // Guarantor
-            'الضامن': 'الضامن يجب أن يكون من الدرجة الأولى:\n👨‍👩‍👧 الأخ أو الأخت\n👩 الأم أو الأب\n💑 الزوج أو الزوجة\n👶 الابن أو الابنة\nيجب تقديم ما يثبت صلة القرابة.',
-            'من يكون الضامن': 'الضامن يجب أن يكون قريب من الدرجة الأولى مثل: الأخ، الأخت، الأم، الزوج، الزوجة، الابن أو الابنة 👨‍👩‍👧',
-            
-            // Electronic Wallet
-            'المحفظة': 'يجب أن تكون لديك محفظة إلكترونية نشطة:\n📱 فودافون كاش\n📱 أو اتصالات كاش\nالمحفظة يجب أن تكون مسجلة باسمك',
-            'فودافون كاش': 'نعم، فودافون كاش من المحافظ المقبولة لدينا 📱',
-            'اتصالات كاش': 'نعم، اتصالات كاش من المحافظ المقبولة لدينا 📱',
-            
-            // Fees and Costs
-            'الرسوم': 'لا توجد أي رسوم إدارية أو دفعات مقدمة! 💰\n✓ مفيش رسوم إدارية\n✓ مفيش دفعات مقدمة\n✓ مفيش شروط تعجيزية\nالفائدة فقط مدمجة في القسط الشهري.',
-            'هل في رسوم': 'لا توجد رسوم مخفية! 🚫 كل شيء واضح من البداية. الفائدة فقط مدمجة في القسط الشهري.',
-            'رسوم إدارية': 'لا توجد رسوم إدارية نهائياً! 🚫 كل شيء شفاف وواضح.',
-            'دفعة مقدمة': 'لا نطلب أي دفعات مقدمة! 🚫 لا تدفع شيء قبل الموافقة على القرض.',
-            
-            // Approval Process
-            'الموافقة': 'مدة الموافقة:\n⏱️ في المتوسط: 24 ساعة\n⏱️ بحد أقصى: 48 ساعة\nسرعة الموافقة تعتمد على استكمال المستندات.',
-            'كم وقت الموافقة': 'الموافقة تستغرق من 24 إلى 48 ساعة كحد أقصى ⏱️',
-            'متى أعرف الموافقة': 'سنتواصل معك عبر واتساب أو الهاتف خلال 24-48 ساعة بنتيجة الموافقة 📞',
-            
-            // Application Process
-            'التقديم': 'خطوات التقديم:\n1️⃣ ادخل على الموقع واملأ النموذج\n2️⃣ أرسل المستندات المطلوبة\n3️⃣ انتظر تواصلنا معك\n4️⃣ توقيع العقد من منزلك\n5️⃣ استقبل القرض فوراً!',
-            'كيف أقدم': 'التقديم سهل جداً:\n✓ ادخل الموقع\n✓ املأ البيانات\n✓ أرسل الصور\n✓ انتظر الموافقة',
-            'خطوات التقديم': 'الخطوات:\n1️⃣ تعبئة النموذج\n2️⃣ إرسال المستندات\n3️⃣ مراجعة البيانات\n4️⃣ توقيع العقد\n5️⃣ صرف القرض',
-            
-            // After Approval
-            'بعد الموافقة': 'بعد الموافقة:\n✓ سيتواصل معك مندوب متخصص\n✓ تحديد موعد التوقيع\n✓ توقيع العقد من منزلك\n✓ استقبال القرض فوراً عبر فودافون كاش\n✓ لا حاجة للحضور أو التنقل',
-            'المندوب': 'المندوب سيصل إليك في:\n📍 منزلك\n📍 مكتبك\n📍 أي مكان تختاره\nلتوقيع العقد بسهولة وأمان 🤝',
-            'التوقيع': 'التوقيع يتم من:\n✓ منزلك\n✓ مكتبك\n✓ أي مكان تختاره\nبدون الحاجة للحضور إلى فرع 🏠',
-            
-            // Disbursement
-            'الصرف': 'صرف القرض:\n💰 يتم فوراً عبر فودافون كاش\n⚡ بعد التوقيع مباشرة\n📱 سيصل إلى محفظتك الإلكترونية\nسهل وسريع جداً!',
-            'متى أستقبل القرض': 'تستقبل القرض فوراً بعد توقيع العقد عبر فودافون كاش أو اتصالات كاش 💰',
-            'فودافون كاش': 'القرض يصل إلى محفظة فودافون كاش الخاصة بك فوراً بعد التوقيع 📱',
-            
-            // Early Payment
-            'السداد المبكر': 'نعم، يمكنك سداد القرض قبل الموعد المحدد! ✅\nالفائدة ستُحسب حتى تاريخ السداد الفعلي فقط.',
-            'سداد قبل الموعد': 'بالتأكيد! يمكنك سداد القرض في أي وقت قبل الموعد المحدد 📅',
-            
-            // Late Payment
-            'تأخر السداد': 'إذا تأخرت في السداد، قد تترتب عليك رسوم تأخير حسب الاتفاق المبرم. ⚠️\nننصحك بالسداد في الموعد المحدد.',
-            'ماذا لو تأخرت': 'إذا تأخرت في السداد، قد تترتب عليك رسوم تأخير. ننصحك بالسداد في الموعد المحدد ⏰',
-            
-            // Modification
-            'تعديل القرض': 'لا يمكن تعديل القرض بعد الموافقة عليه. 🚫\nإذا أردت مبلغاً مختلفاً أو مدة أخرى، يمكنك طلب قرض جديد.',
-            'هل أستطيع تعديل المبلغ': 'لا يمكن تعديل المبلغ بعد الموافقة. يمكنك طلب قرض جديد بمبلغ مختلف.',
-            
-            // Contact and Support
-            'الدعم': 'فريق الدعم متاح لك 24/7 📞\nتواصل معنا عبر:\n📱 واتساب\n📞 الهاتف\n💬 الدردشة الحية\nنحن هنا لمساعدتك!',
-            'كيف أتواصل': 'يمكنك التواصل معنا عبر:\n📱 واتساب\n📞 الهاتف\n💬 الدردشة الحية\nفريقنا جاهز 24/7',
-            
-            // General Questions
-            'شكراً': 'أهلاً وسهلاً! 😊 إذا كان لديك أي استفسار آخر، أنا هنا للمساعدة.',
-            'تمام': 'ممتاز! 👍 هل هناك شيء آخر يمكنني مساعدتك به؟',
-            'حاضر': 'تمام! 👍 أي استفسار آخر؟',
-            
-            // Default Response
-            'default': 'شكراً على سؤالك! 😊 للمزيد من المعلومات، يرجى التواصل مع فريق الدعم أو زيارة الموقع. هل هناك شيء آخر يمكنني مساعدتك به؟'
+            'من نحن': 'Cash Faster هي شركة متخصصة في تقديم حلول تمويل نقدي سريعة وآمنة في مصر. نساعدك في "تحويل" الأجهزة الكهربائية ورقياً فقط، بحيث يتم تسجيل اسمك كمشتري، ولكن الفلوس بتوصل لك مباشرة دون الحاجة لاستلام الجهاز.',
+            'شروط القرض': 'شروط الحصول على القرض:\n✅ السن: من 21 إلى 65 سنة\n✅ بطاقة هوية سارية\n✅ صورة سيلفي مع البطاقة\n✅ وجود ضامن من الدرجة الأولى\n✅ محفظة إلكترونية (فودافون أو اتصالات كاش)\n✅ مبلغ القرض: 30,000 - 200,000 جنيه',
+            'الضامن': 'الضامن يجب أن يكون من الدرجة الأولى مثل: أخ، أخت، أم، زوج، زوجة، ابن، أو ابنة. يجب تقديم ما يثبت صلة القرابة.',
+            'كم مدة الموافقة': 'مدة الموافقة على القرض عادة تكون 48 ساعة بحد أقصى من تقديم الطلب الكامل.',
+            'هل هناك رسوم': 'لا توجد أي رسوم إضافية أو مصاريف مقدمة! 💯\nالفائدة فقط مدمجة في القسط الشهري.\nكل شيء شفاف وواضح من البداية.',
+            'كيف أقدم طلب': 'يمكنك تقديم طلبك من خلال:\n1️⃣ الضغط على زر "قدم الآن"\n2️⃣ ملء البيانات المطلوبة\n3️⃣ تحميل المستندات\n4️⃣ انتظر الموافقة خلال 48 ساعة',
+            'مبلغ القرض': 'مبالغ القرض تبدأ من 30,000 جنيه وتصل إلى 200,000 جنيه، حسب تقييمك المالي.',
+            'مدة السداد': 'مدة السداد مرنة جداً وتتراوح بين 12 شهر إلى 60 شهر، حسب احتياجاتك.',
+            'المحفظة الإلكترونية': 'نقبل محفظتين إلكترونيتين:\n📱 فودافون كاش\n📱 اتصالات كاش\nيجب أن تكون المحفظة مسجلة باسمك.',
+            'استعلام عن الطلب': 'يمكنك الاستعلام عن حالة طلبك من خلال:\n🔍 الضغط على زر "استعلم عن طلبك"\n📱 إدخال رقم هويتك\nستظهر لك جميع تفاصيل طلبك والحالة الحالية.',
+            'السداد المبكر': 'نعم، يمكنك سداد القرض في أي وقت قبل الموعد المحدد! 🎉\nسيتم احتساب الفائدة حتى تاريخ السداد فقط.',
+            'رمضان': 'عرض خاص لشهر رمضان المبارك! 🌙\nاحصل على قرضك بسهولة وأمان في أقدس الشهور.\nنحن هنا لمساعدتك في احتياجاتك المالية.',
+            'المستندات': 'المستندات المطلوبة:\n📄 صورة بطاقة الرقم القومي (أمامي وخلفي)\n📸 صورة سيلفي حديثة وأنت تحمل البطاقة\n✅ إثبات صلة القرابة مع الضامن',
+            'السن': 'يجب أن يكون عمرك من 21 إلى 65 سنة في وقت سداد آخر قسط.',
+            'التحويل': 'يتم تحويل القرض مباشرة إلى محفظتك الإلكترونية (فودافون كاش أو اتصالات كاش) فوراً بعد الموافقة.',
+            'الموافقة': 'بعد تقديم طلبك، سيتم مراجعته من فريق التمويل. سيتم التواصل معك عبر واتساب لتحديد خطوات صرف القرض.',
+            'الأمان': 'نحن نلتزم بأعلى معايير الأمان والسرية والشفافية. جميع بياناتك محمية وآمنة تماماً.',
+            'المصداقية': 'Cash Faster شركة موثوقة وآمنة. عمليات رسمية وشفافة مع أعلى معايير الحماية.',
+            'الخدمات': 'خدماتنا تشمل:\n✅ تمويل نقدي سريع\n✅ إجراءات بسيطة وآمنة\n✅ بدون مصاريف مقدمة\n✅ سداد مرن\n✅ دعم عملاء متميز',
+            'الفائدة': 'الفائدة مدمجة في القسط الشهري. لا توجد رسوم إضافية أو مصاريف خفية.',
+            'تأخر السداد': 'إذا تأخرت في السداد، قد تترتب عليك رسوم تأخير وفقاً للاتفاق المبرم. يرجى التواصل معنا فوراً.',
+            'تعديل القرض': 'لا يمكن تعديل القرض بعد الموافقة عليه. إذا كنت بحاجة لتغيير المبلغ أو المدة، يمكنك طلب قرض جديد.',
+            'الدعم': 'فريق الدعم دائماً جاهز لمساعدتك. يمكنك التواصل معنا في أي وقت عبر الموقع أو واتساب.',
+            'الخطوات': '1️⃣ قدم طلبك\n2️⃣ انتظر المراجعة (48 ساعة)\n3️⃣ تواصل معك فريقنا\n4️⃣ استلم القرض في حسابك',
+            'السرعة': 'نحن الأسرع! استلم قرضك خلال 48 ساعة من الموافقة.',
+            'default': 'شكراً على سؤالك! 😊 للمزيد من المعلومات أو إذا كان لديك سؤال آخر، يرجى التواصل مع فريق الدعم. كيف يمكنني مساعدتك؟'
         };
 
         // Toggle Chat Window
@@ -1053,7 +1153,7 @@
                 setTimeout(() => {
                     const botResponse = getBotResponse(message);
                     addMessage(botResponse, 'bot');
-                }, 600);
+                }, 700);
             }
         }
 
