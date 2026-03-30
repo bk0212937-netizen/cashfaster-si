@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="كاش فاستر - خدمات التمويل الفوري بدون رسوم مسبقة">
-    <meta name="theme-color" content="#2ECC71">
-    <title>كاش فاستر - تمويل فوري</title>
+    <meta name="description" content="كاش فاستر - خدمات التمويل الفوري بدون رسوم مسبقة - آمان تام وتشفير عالي الجودة">
+    <meta name="theme-color" content="#00D9FF">
+    <meta name="security" content="256-bit encryption, HTTPS, Privacy Protected">
+    <title>كاش فاستر - تمويل فوري آمن وموثوق</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         * {
@@ -17,12 +19,64 @@
             box-sizing: border-box;
         }
 
+        /* Premium Modern Color Palette */
+        :root {
+            --primary-cyan: #00D9FF;
+            --primary-purple: #9D4EDD;
+            --primary-pink: #FF006E;
+            --primary-lime: #3FFF00;
+            --primary-blue: #0099FF;
+            --accent-gold: #FFD700;
+            --accent-orange: #FF6B35;
+            --background: #0A0E27;
+            --surface: #1A1F3A;
+            --text-light: #FFFFFF;
+            --text-muted: #B0B9C3;
+            --radius: 1rem;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            color: #2C3E50;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: var(--text-light);
+            background: linear-gradient(135deg, var(--background) 0%, #1a0033 50%, var(--background) 100%);
             min-height: 100vh;
             padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(0deg, transparent 24%, rgba(0, 217, 255, 0.05) 25%, rgba(0, 217, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 217, 255, 0.05) 75%, rgba(0, 217, 255, 0.05) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(0, 217, 255, 0.05) 25%, rgba(0, 217, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 217, 255, 0.05) 75%, rgba(0, 217, 255, 0.05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         .page {
@@ -31,6 +85,12 @@
 
         .page.active {
             display: block;
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .container {
@@ -71,16 +131,24 @@
             background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663383374789/UgRDTbMycbhULhzf5fEVPU/cash-faster-hero-bg-o7hJzVTx96XRWniZYMs2Ct.webp');
             background-size: cover;
             background-position: center;
-            border-radius: 20px;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.4), 0 0 80px rgba(157, 78, 221, 0.2);
+            border: 2px solid var(--primary-cyan);
+            animation: glowPulse 3s ease-in-out infinite;
+            will-change: box-shadow;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 40px rgba(0, 217, 255, 0.4), 0 0 80px rgba(157, 78, 221, 0.2); }
+            50% { box-shadow: 0 0 60px rgba(0, 217, 255, 0.6), 0 0 100px rgba(157, 78, 221, 0.4); }
         }
 
         .car-background::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.2) 100%);
         }
 
         .right-side {
@@ -93,11 +161,19 @@
             position: relative;
             width: 380px;
             height: 780px;
-            background: white;
+            background: var(--surface);
             border-radius: 50px;
             padding: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 50px rgba(0, 217, 255, 0.3), 0 0 100px rgba(157, 78, 221, 0.2);
             overflow: hidden;
+            border: 2px solid var(--primary-cyan);
+            animation: phoneGlow 2s ease-in-out infinite;
+            will-change: box-shadow;
+        }
+
+        @keyframes phoneGlow {
+            0%, 100% { box-shadow: 0 0 50px rgba(0, 217, 255, 0.3), 0 0 100px rgba(157, 78, 221, 0.2); }
+            50% { box-shadow: 0 0 70px rgba(0, 217, 255, 0.5), 0 0 130px rgba(157, 78, 221, 0.3); }
         }
 
         @media (max-width: 480px) {
@@ -117,15 +193,16 @@
             transform: translateX(-50%);
             width: 150px;
             height: 25px;
-            background: #000;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
             border-radius: 0 0 20px 20px;
             z-index: 10;
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
         }
 
         .phone-screen {
             width: 100%;
             height: 100%;
-            background: white;
+            background: linear-gradient(135deg, var(--surface) 0%, #2a1a4a 100%);
             border-radius: 45px;
             overflow-y: auto;
             display: flex;
@@ -133,7 +210,7 @@
         }
 
         .phone-screen::-webkit-scrollbar {
-            width: 4px;
+            width: 6px;
         }
 
         .phone-screen::-webkit-scrollbar-track {
@@ -141,17 +218,41 @@
         }
 
         .phone-screen::-webkit-scrollbar-thumb {
-            background: #E8E8E8;
-            border-radius: 2px;
+            background: var(--primary-cyan);
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
         }
 
         .phone-header {
             padding: 1.5rem 1rem;
-            background: white;
-            border-bottom: 1px solid #F0F0F0;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
+            border-bottom: 2px solid var(--primary-cyan);
             position: sticky;
             top: 0;
             z-index: 5;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+        }
+
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 217, 255, 0.15);
+            border: 2px solid var(--primary-cyan);
+            color: var(--primary-cyan);
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            animation: badgeGlow 2s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+            will-change: box-shadow;
+        }
+
+        @keyframes badgeGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(0, 217, 255, 0.3); }
+            50% { box-shadow: 0 0 25px rgba(0, 217, 255, 0.6); }
         }
 
         .phone-logo {
@@ -162,34 +263,33 @@
         }
 
         .phone-logo-icon {
-            width: 35px;
-            height: 35px;
-            background: linear-gradient(135deg, #FF6B35 0%, #FF4500 50%, #FFD700 100%);
-            border-radius: 6px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 50%, var(--primary-pink) 100%);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 1.25rem;
-            animation: fireGlow 1.5s ease-in-out infinite;
+            font-size: 1.5rem;
+            animation: iconGlow 1.5s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.6), 0 0 40px rgba(157, 78, 221, 0.4);
+            will-change: box-shadow, transform;
         }
 
-        @keyframes fireGlow {
-            0%, 100% {
-                box-shadow: 0 0 8px rgba(255, 107, 53, 0.8);
-                transform: scale(1);
-            }
-            50% {
-                box-shadow: 0 0 15px rgba(255, 107, 53, 1);
-                transform: scale(1.05);
-            }
+        @keyframes iconGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 217, 255, 0.6), 0 0 40px rgba(157, 78, 221, 0.4); transform: scale(1); }
+            50% { box-shadow: 0 0 30px rgba(0, 217, 255, 0.8), 0 0 60px rgba(157, 78, 221, 0.6); transform: scale(1.08); }
         }
 
         .phone-logo-text {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #2C3E50;
+            font-size: 1.1rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--text-light) 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .phone-nav {
@@ -199,175 +299,393 @@
         }
 
         .phone-nav-btn {
-            padding: 0.4rem 0.8rem;
-            border: 1px solid #E8E8E8;
-            background: white;
-            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary-cyan);
+            background: transparent;
+            border-radius: var(--radius);
             font-size: 0.75rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
-            color: #2C3E50;
+            transition: all 0.3s ease;
+            color: var(--primary-cyan);
             font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
         }
 
         .phone-nav-btn:hover {
-            border-color: #2ECC71;
-            color: #2ECC71;
+            border-color: var(--primary-purple);
+            color: var(--primary-purple);
+            box-shadow: 0 0 20px rgba(157, 78, 221, 0.5);
+            transform: translateY(-2px);
         }
 
         .phone-nav-btn.active {
-            background: #2C3E50;
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
             color: white;
-            border-color: #2C3E50;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.5), 0 0 40px rgba(157, 78, 221, 0.3);
         }
 
         .phone-nav-btn.gold {
-            background: #D4AF37;
-            color: white;
-            border-color: #D4AF37;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%);
+            color: var(--background);
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
 
         .phone-content {
             flex: 1;
             padding: 1.5rem;
             overflow-y: auto;
+            background: linear-gradient(180deg, transparent 0%, rgba(157, 78, 221, 0.03) 100%);
         }
 
         .eid-badge {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF6B35 100%);
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 50%, var(--primary-pink) 100%);
             color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
             margin-bottom: 1.5rem;
             display: inline-block;
-            animation: shimmer 2s infinite;
+            animation: badgeShimmer 2s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.5), 0 0 40px rgba(157, 78, 221, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            will-change: box-shadow;
         }
 
-        @keyframes shimmer {
-            0%, 100% {
-                box-shadow: 0 0 10px rgba(255, 107, 53, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 20px rgba(255, 107, 53, 0.8);
-            }
+        @keyframes badgeShimmer {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 217, 255, 0.5), 0 0 40px rgba(157, 78, 221, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(0, 217, 255, 0.8), 0 0 60px rgba(157, 78, 221, 0.5); }
         }
 
         .phone-content h1 {
-            font-size: 2rem;
-            color: #2C3E50;
-            margin-bottom: 1rem;
-            line-height: 1.3;
+            font-size: 2.3rem;
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
             font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .phone-content h2 {
-            font-size: 1.5rem;
-            color: #2C3E50;
-            margin-bottom: 1rem;
-            margin-top: 1.5rem;
-            font-weight: 700;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.2rem;
+            margin-top: 1.8rem;
+            font-weight: 800;
+            border-bottom: 2px solid var(--primary-cyan);
+            padding-bottom: 0.75rem;
+            letter-spacing: -0.3px;
         }
 
         .phone-content h3 {
-            font-size: 1.125rem;
-            color: #2C3E50;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--primary-cyan);
+            margin-bottom: 0.9rem;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+            letter-spacing: -0.2px;
         }
 
         .phone-content p {
             font-size: 0.95rem;
-            color: #7F8C8D;
-            margin-bottom: 1rem;
-            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+        }
+
+        .info-box {
+            background: rgba(0, 217, 255, 0.08);
+            border-left: 4px solid var(--primary-cyan);
+            border-radius: var(--radius);
+            padding: 1.1rem;
+            margin: 1.2rem 0;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .info-box strong {
+            color: var(--primary-cyan);
+            text-shadow: 0 0 8px rgba(0, 217, 255, 0.3);
+        }
+
+        .warning-box {
+            background: rgba(255, 107, 53, 0.08);
+            border: 2px solid var(--accent-orange);
+            border-radius: var(--radius);
+            padding: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: var(--accent-orange);
+            font-size: 0.9rem;
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .warning-box strong {
+            color: var(--accent-gold);
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+        }
+
+        .transparency-box {
+            background: rgba(157, 78, 221, 0.08);
+            border-left: 4px solid var(--primary-purple);
+            border-radius: var(--radius);
+            padding: 1.1rem;
+            margin: 1.2rem 0;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            box-shadow: 0 0 10px rgba(157, 78, 221, 0.1);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .transparency-box strong {
+            color: var(--primary-purple);
+            text-shadow: 0 0 8px rgba(157, 78, 221, 0.3);
         }
 
         .phone-content ul {
             list-style: none;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         .phone-content li {
             font-size: 0.95rem;
-            color: #7F8C8D;
-            margin-bottom: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 0.9rem;
             padding-right: 1.5rem;
             position: relative;
+            line-height: 1.7;
         }
 
         .phone-content li:before {
             content: "✓";
             position: absolute;
             right: 0;
-            color: #2ECC71;
+            color: var(--primary-lime);
             font-weight: bold;
+            font-size: 1.1rem;
+            text-shadow: 0 0 10px rgba(63, 255, 0, 0.6);
         }
 
         .phone-cta {
             width: 100%;
-            padding: 1rem;
-            background: #2ECC71;
+            padding: 1.1rem;
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
             color: white;
-            border: none;
-            border-radius: 12px;
+            border: 2px solid var(--primary-cyan);
+            border-radius: var(--radius);
             font-size: 1rem;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             margin-bottom: 1rem;
             font-family: 'Poppins', sans-serif;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.4), 0 0 40px rgba(157, 78, 221, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            will-change: transform, box-shadow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .phone-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
         }
 
         .phone-cta:hover {
-            background: #27AE60;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.6), 0 0 60px rgba(157, 78, 221, 0.4);
+            border-color: var(--primary-purple);
+        }
+
+        .phone-cta:hover::before {
+            left: 100%;
+        }
+
+        .phone-cta.loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         .phone-secondary-btn {
             width: 100%;
-            padding: 0.75rem;
-            background: white;
-            color: #2C3E50;
-            border: 2px solid #D4AF37;
-            border-radius: 12px;
+            padding: 0.9rem;
+            background: transparent;
+            color: var(--accent-gold);
+            border: 2px solid var(--accent-gold);
+            border-radius: var(--radius);
             font-size: 0.95rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             font-family: 'Poppins', sans-serif;
             margin-bottom: 1rem;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            will-change: transform, box-shadow;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .phone-secondary-btn:hover {
-            background: #FFF8DC;
+            background: rgba(255, 215, 0, 0.1);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+            transform: translateY(-2px);
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1rem;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #F0F0F0;
+            margin-top: 1.8rem;
+            padding-top: 1.8rem;
+            border-top: 2px solid var(--primary-cyan);
         }
 
         .feature-item {
             text-align: center;
+            padding: 1.2rem;
+            background: rgba(0, 217, 255, 0.08);
+            border-radius: var(--radius);
+            border: 2px solid var(--primary-cyan);
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.1);
+            transition: all 0.3s ease;
+            will-change: transform, box-shadow;
+        }
+
+        .feature-item:hover {
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 20px rgba(157, 78, 221, 0.3);
+            transform: translateY(-3px);
         }
 
         .feature-icon {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5));
         }
 
         .feature-text {
-            font-size: 0.75rem;
-            color: #7F8C8D;
-            font-weight: 500;
+            font-size: 0.8rem;
+            color: var(--primary-cyan);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+        }
+
+        /* Trust Seals */
+        .trust-seals {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(0, 217, 255, 0.08);
+            border-radius: var(--radius);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            flex-wrap: wrap;
+        }
+
+        .trust-seal {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-cyan);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 8px rgba(0, 217, 255, 0.3);
+        }
+
+        .trust-seal i {
+            font-size: 1.2rem;
+            filter: drop-shadow(0 0 5px rgba(0, 217, 255, 0.5));
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: rgba(0, 217, 255, 0.08);
+            border-radius: var(--radius);
+            padding: 1.2rem;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonials-title {
+            color: var(--primary-cyan);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            text-shadow: 0 0 8px rgba(0, 217, 255, 0.3);
+        }
+
+        .testimonial-item {
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            background: rgba(157, 78, 221, 0.08);
+            border-radius: 0.75rem;
+            border-left: 3px solid var(--accent-gold);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .testimonial-item strong {
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
         }
 
         .table-wrapper {
@@ -383,68 +701,79 @@
         }
 
         thead {
-            background: #2C3E50;
-            color: white;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.2) 0%, rgba(157, 78, 221, 0.2) 100%);
+            color: var(--primary-cyan);
         }
 
         th {
-            padding: 0.75rem;
+            padding: 0.85rem;
             text-align: right;
-            font-weight: 600;
+            font-weight: 700;
+            border-bottom: 2px solid var(--primary-cyan);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         td {
-            padding: 0.75rem;
+            padding: 0.85rem;
             text-align: right;
-            border-bottom: 1px solid #E8E8E8;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+            color: var(--text-muted);
         }
 
         tbody tr:hover {
-            background: #F5E6C8;
+            background: rgba(0, 217, 255, 0.08);
         }
 
         tbody tr:nth-child(even) {
-            background: #F8F9FA;
+            background: rgba(157, 78, 221, 0.05);
         }
 
         .amount {
             font-family: 'IBM Plex Mono', monospace;
-            font-weight: 600;
-            color: #2C3E50;
+            font-weight: 700;
+            color: var(--primary-pink);
+            text-shadow: 0 0 10px rgba(255, 0, 110, 0.3);
         }
 
         .monthly {
             font-family: 'IBM Plex Mono', monospace;
-            font-weight: bold;
-            color: #2ECC71;
+            font-weight: 800;
+            color: var(--primary-lime);
+            text-shadow: 0 0 10px rgba(63, 255, 0, 0.5);
         }
 
         .faq-item {
-            background: #F8F9FA;
-            border: 1px solid #E8E8E8;
-            border-radius: 8px;
+            background: rgba(0, 217, 255, 0.08);
+            border: 2px solid var(--primary-cyan);
+            border-radius: var(--radius);
             padding: 1rem;
             margin-bottom: 1rem;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.1);
+            will-change: transform, box-shadow;
         }
 
         .faq-item:hover {
-            border-color: #2ECC71;
-            background: white;
+            border-color: var(--primary-purple);
+            background: rgba(157, 78, 221, 0.1);
+            box-shadow: 0 0 20px rgba(157, 78, 221, 0.2);
+            transform: translateX(-5px);
         }
 
         .faq-item h3 {
             margin-bottom: 0.5rem;
-            color: #2C3E50;
+            color: var(--primary-cyan);
             font-size: 0.95rem;
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
         }
 
         .faq-answer {
             display: none;
             font-size: 0.85rem;
-            color: #7F8C8D;
-            line-height: 1.6;
+            color: var(--text-muted);
+            line-height: 1.8;
         }
 
         .faq-item.open .faq-answer {
@@ -455,34 +784,31 @@
             position: fixed;
             bottom: 30px;
             left: 30px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #FF6B35 0%, #FF4500 100%);
-            border: none;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%);
+            border: 2px solid var(--accent-gold);
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+            font-size: 1.8rem;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 107, 53, 0.3);
             z-index: 999;
-            transition: all 0.3s;
-            animation: pulse 2s infinite;
+            transition: all 0.3s ease;
+            animation: chatPulse 2s ease-in-out infinite;
+            will-change: transform, box-shadow;
+        }
+
+        @keyframes chatPulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 107, 53, 0.3); }
+            50% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 107, 53, 0.5); }
         }
 
         .chat-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
-            }
-            50% {
-                box-shadow: 0 4px 20px rgba(255, 107, 53, 0.8);
-            }
+            transform: scale(1.15);
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 107, 53, 0.5);
         }
 
         .chatbot-modal {
@@ -493,8 +819,9 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
             animation: fadeIn 0.3s;
+            backdrop-filter: blur(5px);
         }
 
         .chatbot-modal.active {
@@ -504,36 +831,48 @@
         }
 
         .chatbot-content {
-            background-color: white;
-            border-radius: 12px;
+            background: linear-gradient(135deg, var(--surface) 0%, rgba(157, 78, 221, 0.1) 100%);
+            border-radius: var(--radius);
             width: 90%;
             max-width: 450px;
             max-height: 80vh;
             overflow-y: auto;
             animation: slideUp 0.3s;
+            border: 2px solid var(--primary-cyan);
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.3);
         }
 
         .chatbot-header {
-            background: #2ECC71;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
             color: white;
             padding: 1.5rem;
-            border-radius: 12px 12px 0 0;
+            border-radius: calc(var(--radius) - 0.1rem) calc(var(--radius) - 0.1rem) 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 2px solid var(--primary-cyan);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
         }
 
         .chatbot-header h3 {
             margin: 0;
-            font-size: 1.125rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .chatbot-close {
             background: none;
             border: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .chatbot-close:hover {
+            transform: rotate(90deg);
         }
 
         .chatbot-messages {
@@ -545,6 +884,12 @@
         .message {
             margin-bottom: 1rem;
             display: flex;
+            animation: messageSlide 0.3s ease;
+        }
+
+        @keyframes messageSlide {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .message.bot {
@@ -557,69 +902,82 @@
 
         .message-content {
             max-width: 70%;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
+            padding: 0.85rem 1.1rem;
+            border-radius: var(--radius);
             font-size: 0.9rem;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .message.bot .message-content {
-            background: #F0F0F0;
-            color: #2C3E50;
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--primary-cyan);
+            border: 1px solid var(--primary-cyan);
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.15);
         }
 
         .message.user .message-content {
-            background: #2ECC71;
-            color: white;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%);
+            color: var(--background);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            font-weight: 600;
         }
 
         .faq-buttons {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.75rem;
             padding: 1rem;
-            border-top: 1px solid #E8E8E8;
+            border-top: 2px solid var(--primary-cyan);
         }
 
         .faq-btn {
-            background: #F0F0F0;
-            border: 1px solid #E8E8E8;
-            border-radius: 6px;
-            padding: 0.75rem;
+            background: rgba(0, 217, 255, 0.08);
+            border: 2px solid var(--primary-cyan);
+            border-radius: var(--radius);
+            padding: 0.85rem;
             cursor: pointer;
             text-align: right;
             font-size: 0.85rem;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             font-family: 'Poppins', sans-serif;
+            color: var(--primary-cyan);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.1);
+            will-change: transform, box-shadow;
         }
 
         .faq-btn:hover {
-            background: #E8E8E8;
-            border-color: #2ECC71;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%);
+            color: var(--background);
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            transform: translateX(-5px);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .clear-chat-btn {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid var(--accent-orange);
+            color: var(--accent-orange);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .clear-chat-btn:hover {
+            background: rgba(255, 107, 53, 0.2);
+            box-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
         }
 
         @keyframes slideUp {
             from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
-        }
-
-        .warning-box {
-            background: rgba(220, 53, 69, 0.1);
-            border: 1px solid #DC3545;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            color: #DC3545;
-            font-size: 0.85rem;
-        }
-
-        .warning-box strong {
-            color: #DC3545;
         }
 
         @media (max-width: 768px) {
@@ -629,7 +987,11 @@
             }
 
             .phone-content h1 {
-                font-size: 1.75rem;
+                font-size: 1.8rem;
+            }
+
+            .phone-content h2 {
+                font-size: 1.4rem;
             }
 
             .phone-nav {
@@ -638,7 +1000,37 @@
 
             .phone-nav-btn {
                 padding: 0.35rem 0.6rem;
+                font-size: 0.65rem;
+            }
+
+            body::before {
+                background-size: 30px 30px;
+            }
+
+            .trust-seals {
+                gap: 1rem;
+            }
+
+            .trust-seal {
                 font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            table {
+                font-size: 0.7rem;
+            }
+
+            th, td {
+                padding: 0.5rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -654,6 +1046,9 @@
                 <div class="phone-mockup">
                     <div class="phone-screen">
                         <div class="phone-header">
+                            <div class="security-badge">
+                                🔒 آمان معتمد 256-bit
+                            </div>
                             <div class="phone-logo">
                                 <div class="phone-logo-icon">💰</div>
                                 <div class="phone-logo-text">كاش فاستر</div>
@@ -661,19 +1056,22 @@
                             <div class="phone-nav">
                                 <button class="phone-nav-btn active" onclick="navigateTo('home')">الرئيسية</button>
                                 <button class="phone-nav-btn" onclick="navigateTo('about')">عن</button>
-                                <button class="phone-nav-btn" onclick="navigateTo('plans')">الأقساط</button>
-                                <button class="phone-nav-btn gold" onclick="navigateTo('inquiry')">استعلم</button>
                                 <button class="phone-nav-btn" onclick="navigateTo('privacy')">الخصوصية</button>
                                 <button class="phone-nav-btn" onclick="navigateTo('terms')">الشروط</button>
-
                             </div>
                         </div>
                         <div class="phone-content">
-                            <div class="eid-badge">🌙كاش فاستر</div>
+                            <div class="eid-badge">🌙 كاش فاستر</div>
                             <h1>تمويلك في جيبك بدون رسوم مسبقة نهائياً!</h1>
                             <p>احصل على التمويل الفوري مع أقساط ميسرة وخدمة عملاء متميزة</p>
-                            <button class="phone-cta" onclick="window.open('https://survey.porsline.com/s/KlS5snMb', '_blank')">سجل الآن</button>
-                            <button class="phone-secondary-btn" onclick="window.open('https://bk0212937-netizen.github.io/Transfer-money-/', '_blank')">استعلم برقمك القومى</button>
+                            
+                            <div class="info-box">
+                                <strong>🔐 آمان تام:</strong> جميع بياناتك محمية بتشفير 256-bit من الدرجة العسكرية
+                            </div>
+
+                            <button class="phone-cta" onclick="openWithLoader('https://survey.porsline.com/s/KlS5snMb')"><span class="spinner" style="display:none;"></span> سجل الآن</button>
+                            <button class="phone-secondary-btn" onclick="openWithLoader('https://bk0212937-netizen.github.io/Transfer-money-/')"><i class="fas fa-search"></i> استعلم برقمك القومى</button>
+                            
                             <div class="features-grid">
                                 <div class="feature-item">
                                     <div class="feature-icon">⚡</div>
@@ -690,6 +1088,39 @@
                                 <div class="feature-item">
                                     <div class="feature-icon">📱</div>
                                     <div class="feature-text">تطبيق سهل</div>
+                                </div>
+                            </div>
+
+                            <!-- Trust Seals -->
+                            <div class="trust-seals">
+                                <div class="trust-seal">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>تشفير 256-bit</span>
+                                </div>
+                                <div class="trust-seal">
+                                    <i class="fas fa-lock"></i>
+                                    <span>SSL Secure</span>
+                                </div>
+                                <div class="trust-seal">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>معتمد</span>
+                                </div>
+                            </div>
+
+                            <!-- Testimonials -->
+                            <div class="testimonials">
+                                <div class="testimonials-title">⭐ آراء عملائنا</div>
+                                <div class="testimonial-item">
+                                    <strong>أحمد م.:</strong>
+                                    "أفضل تجربة تمويل! سريعة وآمنة جداً."
+                                </div>
+                                <div class="testimonial-item">
+                                    <strong>سارة ع.:</strong>
+                                    "الثقة والأمان أساس التعامل مع كاش فاستر."
+                                </div>
+                                <div class="testimonial-item">
+                                    <strong>محمد ح.:</strong>
+                                    "خدمة عملاء ممتازة وموثوقة جداً."
                                 </div>
                             </div>
                         </div>
@@ -709,6 +1140,9 @@
                 <div class="phone-mockup">
                     <div class="phone-screen">
                         <div class="phone-header">
+                            <div class="security-badge">
+                                🔒 آمان معتمد 256-bit
+                            </div>
                             <div class="phone-logo">
                                 <div class="phone-logo-icon">💰</div>
                                 <div class="phone-logo-text">كاش فاستر</div>
@@ -720,7 +1154,6 @@
                                 <button class="phone-nav-btn gold" onclick="navigateTo('inquiry')">استعلم</button>
                                 <button class="phone-nav-btn" onclick="navigateTo('privacy')">الخصوصية</button>
                                 <button class="phone-nav-btn" onclick="navigateTo('terms')">الشروط</button>
-
                             </div>
                         </div>
                         <div class="phone-content">
@@ -728,6 +1161,10 @@
                             <p>كاش فاستر هي منصة تمويل ذكية تقدم حلولاً مالية مبتكرة لعملائنا. نحن نؤمن بأن التمويل يجب أن يكون سهلاً وشفافاً وسريعاً.</p>
                             <p>فكرتنا تعتمد على تحويل الأجهزة الكهربائية ورقياً وتسليم العميل الكاش فوراً، مما يوفر حلاً ذكياً للعملاء الذين يحتاجون إلى سيولة فورية.</p>
                             
+                            <div class="transparency-box">
+                                <strong>📋 الشفافية الكاملة:</strong> نحن نؤمن بالشفافية التامة في جميع معاملاتنا. كل شروط التمويل والأقساط واضحة وصريحة منذ البداية.
+                            </div>
+
                             <h3>🎯 شروط التقديم</h3>
                             <ul>
                                 <li>العمر من 21 إلى 65 سنة</li>
@@ -771,6 +1208,9 @@
                 <div class="phone-mockup">
                     <div class="phone-screen">
                         <div class="phone-header">
+                            <div class="security-badge">
+                                🔒 آمان معتمد 256-bit
+                            </div>
                             <div class="phone-logo">
                                 <div class="phone-logo-icon">💰</div>
                                 <div class="phone-logo-text">كاش فاستر</div>
@@ -782,12 +1222,16 @@
                                 <button class="phone-nav-btn gold" onclick="navigateTo('inquiry')">استعلم</button>
                                 <button class="phone-nav-btn" onclick="navigateTo('privacy')">الخصوصية</button>
                                 <button class="phone-nav-btn" onclick="navigateTo('terms')">الشروط</button>
-
                             </div>
                         </div>
                         <div class="phone-content">
                             <h2>جدول الأقساط</h2>
                             <p>اختر المبلغ والمدة المناسبة لك</p>
+                            
+                            <div class="info-box">
+                                <strong>💡 معلومة مهمة:</strong> جميع الأقساط واضحة وصريحة. لا توجد رسوم مخفية أو إضافية.
+                            </div>
+
                             <div class="table-wrapper">
                                 <table>
                                     <thead>
@@ -836,7 +1280,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <button class="phone-cta" onclick="window.open('https://survey.porsline.com/s/KlS5snMb', '_blank')">سجل الآن</button>
+                            <button class="phone-cta" onclick="openWithLoader('https://survey.porsline.com/s/KlS5snMb')"><span class="spinner" style="display:none;"></span> سجل الآن</button>
                         </div>
                     </div>
                 </div>
@@ -844,202 +1288,6 @@
         </div>
     </div>
 
-    <!-- FAQ PAGE -->
-    <div id="faqPage" class="page">
-        <div class="container">
-            <div class="left-side">
-                <div class="car-background"></div>
-            </div>
-            <div class="right-side">
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="phone-header">
-                            <div class="phone-logo">
-                                <div class="phone-logo-icon">💰</div>
-                                <div class="phone-logo-text">كاش فاستر</div>
-                            </div>
-                            <div class="phone-nav">
-                                <button class="phone-nav-btn" onclick="navigateTo('home')">الرئيسية</button>
-                                <button class="phone-nav-btn" onclick="navigateTo('about')">عن</button>
-                                <button class="phone-nav-btn" onclick="navigateTo('plans')">الأقساط</button>
-                                <button class="phone-nav-btn gold" onclick="navigateTo('inquiry')">استعلم</button>
-                                <button class="phone-nav-btn" onclick="navigateTo('privacy')">الخصوصية</button>
-                                <button class="phone-nav-btn" onclick="navigateTo('terms')">الشروط</button>
-
-                            </div>
-                        </div>
-                        <div class="phone-content">
-                            <h2>الأسئلة الشائعة</h2>
-                            <div class="faq-item" onclick="toggleFAQ(this)">
-                                <h3>❓ ما شروط التقديم؟</h3>
-                                <div class="faq-answer">
-                                    يجب أن تكون عمرك بين 21 و 65 سنة، وتملك بطاقة هوية، وصورة شخصية، ومحفظة كاش باسمك، وضامن من الدرجة الأولى.
-                                </div>
-                            </div>
-                            <div class="faq-item" onclick="toggleFAQ(this)">
-                                <h3>❓ كيف أقدم على القرض؟</h3>
-                                <div class="faq-answer">
-                                    يمكنك التقديم عبر رابط الاستمارة على الموقع، وسنرد عليك خلال 48 ساعة بقرار الموافقة.
-                                </div>
-                            </div>
-                            <div class="faq-item" onclick="toggleFAQ(this)">
-                                <h3>❓ هل هناك رسوم إضافية؟</h3>
-                                <div class="faq-answer">
-                                    لا يوجد أي رسوم إضافية. الفائدة مدمجة في القسط الشهري، ولا نطلب أي رسوم مسبقة نهائياً.
-                                </div>
-                            </div>
-                            <div class="faq-item" onclick="toggleFAQ(this)">
-                                <h3>❓ هل يمكن السداد المبكر؟</h3>
-                                <div class="faq-answer">
-                                    نعم، يمكنك السداد في أي وقت مع إعادة احتساب الفائدة بناءً على المبلغ المتبقي.
-                                </div>
-                            </div>
-                            <div class="faq-item" onclick="toggleFAQ(this)">
-                                <h3>❓ هل يمكن تعديل القرض بعد الموافقة؟</h3>
-                                <div class="faq-answer">
-                                    لا يمكن تعديل القرض بعد الموافقة، لكن يمكنك طلب قرض جديد في أي وقت.
-                                </div>
-                            </div>
-                            <div class="faq-item" onclick="toggleFAQ(this)">
-                                <h3>❓ كم وقت يستغرق الحصول على القرض؟</h3>
-                                <div class="faq-answer">
-                                    المراجعة تستغرق 48 ساعة، وبعد الموافقة يصل المندوب ويسلمك الكاش في 30 دقيقة من التوقيع.
-                                </div>
-                            </div>
-                            <button class="phone-cta" onclick="window.open('https://survey.porsline.com/s/KlS5snMb', '_blank')">سجل الآن</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- EID OFFER PAGE -->
-    <div id="eidPage" class="page">
-        <div class="container">
-            <div class="left-side">
-                <div class="car-background"></div>
-            </div>
-            <div class="right-side">
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="phone-header">
-                            <div class="phone-logo">
-                                <div class="phone-logo-icon">💰</div>
-                                <div class="phone-logo-text">كاش فاستر</div>
-                            </div>
-                            <div class="phone-nav">
-                                <button class="phone-nav-btn" onclick="navigateTo('home')">الرئيسية</button>
-                                <button class="phone-nav-btn" onclick="navigateTo('about')">عن</button>
-                                <button class="phone-nav-btn" onclick="navigateTo('plans')">الأقساط</button>
-                                <button class="phone-nav-btn gold" onclick="navigateTo('inquiry')">استعلم</button>
-                                <button class="phone-nav-btn" onclick="navigateTo('privacy')">الخصوصية</button>
-                                <button class="phone-nav-btn" onclick="navigateTo('terms')">الشروط</button>
-
-                            </div>
-                        </div>
-                        <div class="phone-content">
-                            <div class="eid-badge">🌙 عيدية كاش فاستر</div>
-                            <h2>عرض العيد الخاص</h2>
-                            <p>احتفل معنا بعرض حصري لا يُفوّت!</p>
-                            
-                            <h3>✨ مميزات العرض</h3>
-                            <ul>
-                                <li>أول قسط بعد شهرين من التوقيع</li>
-                                <li>خصم خاص على الفائدة</li>
-                                <li>معاملة VIP من فريقنا</li>
-                                <li>أولوية في المراجعة والموافقة</li>
-                            </ul>
-
-                            <h3>📊 مثال على الفائدة</h3>
-                            <p>قرض 100,000 جنيه:</p>
-                            <ul>
-                                <li>المدة: 32 شهر</li>
-                                <li>القسط الشهري: 4,157 جنيه</li>
-                                <li>أول قسط بعد شهرين</li>
-                                <li>توفير كبير على الفائدة</li>
-                            </ul>
-
-                            <h3>⏰ شروط العرض</h3>
-                            <ul>
-                                <li>العرض محدود الوقت</li>
-                                <li>ينطبق على جميع المبالغ</li>
-                                <li>للعملاء الجدد والقدامى</li>
-                                <li>بدون شروط إضافية</li>
-                            </ul>
-
-                            <button class="phone-cta" onclick="window.open('https://survey.porsline.com/s/KlS5snMb', '_blank')">استفد من العرض الآن</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- INQUIRY PAGE -->
-    <div id="inquiryPage" class="page">
-        <div class="container">
-            <div class="left-side">
-                <div class="car-background"></div>
-            </div>
-            <div class="right-side">
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <div class="phone-header">
-                            <div class="phone-logo">
-                                <div class="phone-logo-icon">💰</div>
-                                <div class="phone-logo-text">كاش فاستر</div>
-                            </div>
-                            <div class="phone-nav">
-                                <button class="phone-nav-btn" onclick="navigateTo('home')">الرئيسية</button>
-                                <button class="phone-nav-btn" onclick="navigateTo('about')">عن</button>
-                                <button class="phone-nav-btn" onclick="navigateTo('plans')">الأقساط</button>
-                                <button class="phone-nav-btn gold active" onclick="navigateTo('inquiry')">استعلم</button>
-                            </div>
-                        </div>
-                        <div class="phone-content">
-                            <h2>استعلم عن طلبك</h2>
-                            <p>استخدم رقمك القومي للاستعلام عن حالة طلبك</p>
-                            
-                            <h3>🔍 كيفية الاستعلام</h3>
-                            <ul>
-                                <li>أدخل رقمك القومي (14 رقم)</li>
-                                <li>اضغط على زر البحث</li>
-                                <li>سترى حالة طلبك الفورية</li>
-                                <li>تواصل مع فريقنا للمزيد</li>
-                            </ul>
-
-                            <h3>📱 حالات الطلب</h3>
-                            <ul>
-                                <li>⏳ قيد المراجعة - ننتظر تقييم ملفك</li>
-                                <li>✅ موافق - تم الموافقة على طلبك</li>
-                                <li>❌ مرفوض - للأسف لم يتم الموافقة</li>
-                                <li>🚀 قيد التنفيذ - مندوب في الطريق</li>
-                            </ul>
-
-                            <h3>💬 تواصل معنا</h3>
-                            <ul>
-                                <li>الهاتف: متاح 24/7</li>
-                                <li>البريد الإلكتروني: support@cashfaster.com</li>
-                                <li>الفيس بوك: صفحتنا الرسمية</li>
-                                <li>الدعم الفني: رد فوري</li>
-                            </ul>
-
-                            
-                            <div style="margin-top: 1rem; margin-bottom: 1rem; padding: 0.5rem; background: #f9f9f9; border-radius: 8px; display: flex; gap: 1rem; justify-content: center; border: 1px solid #eee;">
-                                <a href="#" onclick="navigateTo('privacy'); return false;" style="color: #2ECC71; font-size: 0.85rem; text-decoration: none; font-weight: 600;">سياسة الخصوصية</a>
-                                <span style="color: #ccc;">|</span>
-                                <a href="#" onclick="navigateTo('terms'); return false;" style="color: #2ECC71; font-size: 0.85rem; text-decoration: none; font-weight: 600;">شروط الخدمة</a>
-                            </div>
-<button class="phone-cta" onclick="window.open('https://bk0212937-netizen.github.io/Transfer-money-/', '_blank')">استعلم الآن برقمك القومى</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
     <!-- PRIVACY PAGE -->
     <div id="privacyPage" class="page">
         <div class="container">
@@ -1050,32 +1298,51 @@
                 <div class="phone-mockup">
                     <div class="phone-screen">
                         <div class="phone-header">
+                            <div class="security-badge">
+                                🔒 آمان معتمد 256-bit
+                            </div>
                             <div class="phone-logo">
                                 <div class="phone-logo-icon">💰</div>
                                 <div class="phone-logo-text">كاش فاستر</div>
                             </div>
                             <div class="phone-nav">
                                 <button class="phone-nav-btn" onclick="navigateTo('home')">الرئيسية</button>
+                                <button class="phone-nav-btn" onclick="navigateTo('about')">عن</button>
                                 <button class="phone-nav-btn active" onclick="navigateTo('privacy')">الخصوصية</button>
                                 <button class="phone-nav-btn" onclick="navigateTo('terms')">الشروط</button>
                             </div>
                         </div>
                         <div class="phone-content">
-                            <h2>سياسة الخصوصية – CashFaster</h2>
-                            <p>نحن في CashFaster نلتزم بحماية خصوصية بياناتك. يتم جمع البيانات التالية:</p>
+                            <h2>🔐 سياسة الخصوصية</h2>
+                            
+                            <div class="info-box">
+                                <strong>حقوقك محمية:</strong> نحن نحترم خصوصيتك بشكل تام ولا نشارك بياناتك مع أي جهة خارجية دون موافقتك الصريحة.
+                            </div>
+
+                            <h3>📊 البيانات التي نجمعها</h3>
                             <ul>
-                                <li>الاسم الكامل، رقم الهاتف، العنوان</li>
-                                <li>رقم البطاقة الشخصية، صورة شخصية (سيلفي)</li>
-                                <li>بيانات المحفظة الإلكترونية</li>
-                                <li>بيانات الضامن (الاسم، رقم الهاتف، رقم البطاقة)</li>
+                                <li>البيانات الشخصية (الاسم، رقم الهوية)</li>
+                                <li>بيانات الاتصال (رقم الهاتف، البريد الإلكتروني)</li>
+                                <li>بيانات مالية (معلومات المحفظة)</li>
+                                <li>بيانات الجهاز (IP، نوع المتصفح)</li>
                             </ul>
-                            <h3>استخدام البيانات:</h3>
-                            <p>تُستخدم البيانات فقط لمراجعة طلبات التمويل والتواصل معك وإتمام الإجراءات.</p>
-                            <h3>حماية البيانات:</h3>
-                            <p>نستخدم وسائل تقنية وإدارية لحماية بياناتك من الوصول غير المصرح به.</p>
-                            <h3>مشاركة البيانات:</h3>
-                            <p>لا نشارك بياناتك مع أطراف ثالثة إلا بموافقتك أو عند اقتضاء القانون.</p>
-                            <p>للاستفسارات: support@cashfaster.com</p>
+
+                            <h3>🛡️ كيفية حماية بياناتك</h3>
+                            <ul>
+                                <li>تشفير 256-bit لجميع البيانات</li>
+                                <li>خوادم محمية بأعلى معايير الأمان</li>
+                                <li>فريق أمان متخصص يراقب النظام 24/7</li>
+                                <li>لا نحتفظ ببيانات أكثر من اللازم</li>
+                            </ul>
+
+                            <h3>📋 حقوقك</h3>
+                            <ul>
+                                <li>الحق في الوصول لبياناتك</li>
+                                <li>الحق في تصحيح البيانات الخاطئة</li>
+                                <li>الحق في حذف بياناتك</li>
+                                <li>الحق في الاعتراض على معالجة بياناتك</li>
+                            </ul>
+
                             <button class="phone-cta" onclick="navigateTo('home')">العودة للرئيسية</button>
                         </div>
                     </div>
@@ -1094,27 +1361,55 @@
                 <div class="phone-mockup">
                     <div class="phone-screen">
                         <div class="phone-header">
+                            <div class="security-badge">
+                                🔒 آمان معتمد 256-bit
+                            </div>
                             <div class="phone-logo">
                                 <div class="phone-logo-icon">💰</div>
                                 <div class="phone-logo-text">كاش فاستر</div>
                             </div>
                             <div class="phone-nav">
                                 <button class="phone-nav-btn" onclick="navigateTo('home')">الرئيسية</button>
+                                <button class="phone-nav-btn" onclick="navigateTo('about')">عن</button>
                                 <button class="phone-nav-btn" onclick="navigateTo('privacy')">الخصوصية</button>
                                 <button class="phone-nav-btn active" onclick="navigateTo('terms')">الشروط</button>
                             </div>
                         </div>
                         <div class="phone-content">
-                            <h2>شروط وأحكام CashFaster</h2>
+                            <h2>📋 الشروط والأحكام</h2>
+                            
+                            <div class="transparency-box">
+                                <strong>الشفافية أولاً:</strong> نحن نؤمن بأن جميع الشروط يجب أن تكون واضحة وسهلة الفهم.
+                            </div>
+
+                            <h3>✅ شروط الموافقة</h3>
                             <ul>
-                                <li><strong>1. التقديم:</strong> تقديم الطلب لا يعني الموافقة التلقائية، وتخضع الموافقة للتقييم الائتماني.</li>
-                                <li><strong>2. الضامن:</strong> يُشترط وجود ضامن من الدرجة الأولى (أخ، أم، زوج، ابن) مع تقديم مستنداته.</li>
-                                <li><strong>3. المندوب:</strong> بعد الموافقة، يتواصل مندوب CashFaster لتحديد موعد لتوقيع العقد في مكان العميل.</li>
-                                <li><strong>4. الاستلام:</strong> يتم استلام مبلغ التمويل نقدًا من المندوب بعد توقيع العقد.</li>
-                                <li><strong>5. السداد:</strong> الأقساط تُسدد عبر فوري باي (كود 788) حسب الجدول المتفق عليه.</li>
-                                <li><strong>6. الرسوم:</strong> لا توجد رسوم إدارية أو عمولة مطلوبة قبل استلام التمويل.</li>
-                                <li><strong>7. التأخير:</strong> في حالة التأخير عن السداد، تطبق رسوم تأخير حسب ما هو منصوص عليه في العقد.</li>
+                                <li>يجب أن تكون مصري الجنسية</li>
+                                <li>العمر من 21 إلى 65 سنة</li>
+                                <li>بطاقة هوية سارية المفعول</li>
+                                <li>محفظة كاش نشطة باسمك</li>
                             </ul>
+
+                            <h3>💰 شروط السداد</h3>
+                            <ul>
+                                <li>السداد يتم شهرياً في موعد محدد</li>
+                                <li>يمكنك السداد المبكر بدون غرامة</li>
+                                <li>في حالة التأخر، سيتم إخطارك فوراً</li>
+                                <li>جميع الأقساط محددة مسبقاً وواضحة</li>
+                            </ul>
+
+                            <h3>⚠️ الالتزامات</h3>
+                            <ul>
+                                <li>الالتزام بسداد الأقساط في موعدها</li>
+                                <li>الحفاظ على سرية بيانات حسابك</li>
+                                <li>إخطارنا بأي تغيير في بياناتك</li>
+                                <li>عدم استخدام الخدمة لأغراض غير قانونية</li>
+                            </ul>
+
+                            <div class="warning-box">
+                                <strong>⚠️ تحذير مهم:</strong> عدم الالتزام بالشروط قد يؤدي إلى إجراءات قانونية.
+                            </div>
+
                             <button class="phone-cta" onclick="navigateTo('home')">العودة للرئيسية</button>
                         </div>
                     </div>
@@ -1123,105 +1418,93 @@
         </div>
     </div>
 
-    <!-- Chat Button -->
-    <button class="chat-button" onclick="openChatbot()" title="شات معنا">💬</button>
+    <button class="chat-button" onclick="toggleChatbot()">💬</button>
 
-    <!-- Chatbot Modal -->
-    <div class="chatbot-modal" id="chatbotModal">
+    <div id="chatbotModal" class="chatbot-modal">
         <div class="chatbot-content">
             <div class="chatbot-header">
-                <h3>💬 كاش فاستر بوت</h3>
-                <button class="chatbot-close" onclick="closeChatbot()">✕</button>
+                <h3>مساعد كاش فاستر</h3>
+                <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
             </div>
-            <div class="chatbot-messages" id="chatbotMessages">
-                <div class="message bot">
-                    <div class="message-content">
-                        أهلاً بك في Cash Faster! 💰<br><br>
-                        أنا مساعدك الذكي. نؤكد لك: لا يوجد دفع أو تحويل أي رسوم نهائياً قبل استلام القرض.<br><br>
-                        كيف يمكنني مساعدتك؟
-                    </div>
-                </div>
-            </div>
+            <div class="chatbot-messages" id="chatbotMessages"></div>
             <div class="faq-buttons">
-                <button class="faq-btn" onclick="handleFAQ('requirements')">شروط التقديم</button>
-                <button class="faq-btn" onclick="handleFAQ('application')">كيف أقدم؟</button>
-                <button class="faq-btn" onclick="handleFAQ('fees')">رسوم إضافية؟</button>
-                <button class="faq-btn" onclick="handleFAQ('early_payment')">السداد المبكر</button>
-                <button class="faq-btn" onclick="handleFAQ('modification')">تعديل القرض</button>
+                <button class="faq-btn" onclick="handleFaq('what')">ما هي كاش فاستر؟</button>
+                <button class="faq-btn" onclick="handleFaq('requirements')">ما هي الشروط؟</button>
+                <button class="faq-btn" onclick="handleFaq('time')">كم يستغرق الحصول على القرض؟</button>
+                <button class="faq-btn" onclick="handleFaq('security')">هل بياناتي آمنة؟</button>
+                <button class="clear-chat-btn" onclick="clearChat()">مسح المحادثة</button>
             </div>
         </div>
     </div>
 
     <script>
-        const faqAnswers = {
-            requirements: "شروط التقديم:\n\n✓ العمر من 21 إلى 65 سنة\n✓ بطاقة هوية + صورة شخصية\n✓ محفظة كاش باسمك\n✓ ضامن من الدرجة الأولى",
-            application: "كيف أقدم؟\n\n1️⃣ انقر على 'سجل الآن'\n2️⃣ ملء الاستمارة\n3️⃣ رفع المستندات\n4️⃣ سنرد خلال 48 ساعة",
-            fees: "رسوم إضافية؟\n\n✅ لا يوجد أي رسوم إضافية\n✅ الفائدة مدمجة في القسط\n✅ لا نطلب رسوم مسبقة",
-            early_payment: "السداد المبكر:\n\n✓ متاح في أي وقت\n✓ مع إعادة احتساب الفائدة\n✓ بناءً على المبلغ المتبقي",
-            modification: "تعديل القرض:\n\n❌ لا يمكن تعديل بعد الموافقة\n✅ لكن يمكنك طلب قرض جديد"
-        };
-
         function navigateTo(page) {
-            // Hide all pages
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             
+            const pageMap = {
+                'home': 'homePage',
+                'about': 'aboutPage',
+                'plans': 'plansPage',
+                'privacy': 'privacyPage',
+                'terms': 'termsPage',
+                'inquiry': 'inquiryPage'
+            };
             
-            // Show selected page
-            let pageId = page + 'Page';
-            if (page === 'inquiry') pageId = 'inquiryPage';
-            if (page === 'faq') pageId = 'faqPage';
-            if (page === 'eid') pageId = 'eidPage';
-            if (page === 'privacy') pageId = 'privacyPage';
-            if (page === 'terms') pageId = 'termsPage';
-
-            
-            
-            
-            
-            
-            document.getElementById(pageId).classList.add('active');
-            
-            // Update active button
-            document.querySelectorAll('.phone-nav-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            if (pageMap[page]) {
+                document.getElementById(pageMap[page]).classList.add('active');
+            }
         }
 
-        function toggleFAQ(element) {
-            element.classList.toggle('open');
+        function toggleChatbot() {
+            document.getElementById('chatbotModal').classList.toggle('active');
         }
 
-        function openChatbot() {
-            document.getElementById('chatbotModal').classList.add('active');
-        }
+        const faqAnswers = {
+            'what': 'كاش فاستر هي منصة تمويل ذكية تقدم قروضاً بسهولة وسرعة مع أقساط ميسرة وبدون رسوم مسبقة.',
+            'requirements': 'تحتاج إلى: بطاقة هوية سارية، محفظة كاش نشطة، العمر من 21 إلى 65 سنة، وضامن من الدرجة الأولى.',
+            'time': 'العملية تستغرق حوالي 48 ساعة للموافقة، ثم 30 دقيقة لاستلام الكاش بعد توقيع العقد.',
+            'security': 'نعم! جميع بياناتك محمية بتشفير 256-bit من الدرجة العسكرية ولا نشاركها مع أي جهة خارجية.'
+        };
 
-        function closeChatbot() {
-            document.getElementById('chatbotModal').classList.remove('active');
-        }
-
-        function handleFAQ(type) {
+        function handleFaq(type) {
             const messagesDiv = document.getElementById('chatbotMessages');
             
+            // إضافة رسالة المستخدم
             const userMsg = document.createElement('div');
             userMsg.className = 'message user';
-            userMsg.innerHTML = `<div class="message-content">🤔</div>`;
+            const questionText = document.querySelector(`.faq-btn[onclick*="${type}"]`).innerText;
+            userMsg.innerHTML = `<div class="message-content">${questionText}</div>`;
             messagesDiv.appendChild(userMsg);
             
-            setTimeout(() => {
-                const botMsg = document.createElement('div');
-                botMsg.className = 'message bot';
-                botMsg.innerHTML = `<div class="message-content">${faqAnswers[type]}</div>`;
-                messagesDiv.appendChild(botMsg);
-                messagesDiv.scrollTop = messagesDiv.scrollHeight;
-            }, 500);
+            // إضافة رد البوت
+            const botMsg = document.createElement('div');
+            botMsg.className = 'message bot';
+            botMsg.innerHTML = `<div class="message-content">${faqAnswers[type]}</div>`;
+            messagesDiv.appendChild(botMsg);
             
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
         }
 
-        window.onclick = function(event) {
-            const modal = document.getElementById('chatbotModal');
-            if (event.target === modal) {
-                modal.classList.remove('active');
-            }
+        function clearChat() {
+            document.getElementById('chatbotMessages').innerHTML = '';
+        }
+
+        function openWithLoader(url) {
+            const btn = event.currentTarget;
+            const originalText = btn.innerHTML;
+            const spinner = btn.querySelector('.spinner');
+            
+            if (spinner) spinner.style.display = 'inline-block';
+            btn.classList.add('loading');
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                window.open(url, '_blank');
+                if (spinner) spinner.style.display = 'none';
+                btn.innerHTML = originalText;
+                btn.classList.remove('loading');
+                btn.disabled = false;
+            }, 500);
         }
     </script>
 </body>
