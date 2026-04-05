@@ -2,8 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="كاش فاستر - خدمات التمويل الفوري بدون رسوم مسبقة - آمان تام وتشفير عالي الجودة">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="كاش فاستر - خدمات التمويل الفوري بدون رسوم مسبقة - آمان تام وتشفير 256-bit">
     <meta name="theme-color" content="#00D9FF">
     <meta name="security" content="256-bit encryption, HTTPS, Privacy Protected">
     <title>كاش فاستر - تمويل فوري آمن وموثوق</title>
@@ -19,7 +19,7 @@
             box-sizing: border-box;
         }
 
-        /* Premium Modern Color Palette */
+        /* Premium Modern Color Palette - Cyberpunk Luxury */
         :root {
             --primary-cyan: #00D9FF;
             --primary-purple: #9D4EDD;
@@ -30,21 +30,26 @@
             --accent-orange: #FF6B35;
             --background: #0A0E27;
             --surface: #1A1F3A;
+            --surface-light: rgba(26, 31, 58, 0.7);
             --text-light: #FFFFFF;
             --text-muted: #B0B9C3;
             --radius: 1rem;
+            --glow-cyan: 0 0 20px rgba(0, 217, 255, 0.6);
+            --glow-purple: 0 0 20px rgba(157, 78, 221, 0.6);
+            --glow-gold: 0 0 20px rgba(255, 215, 0, 0.6);
         }
 
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text-light);
-            background: linear-gradient(135deg, var(--background) 0%, #1a0033 50%, var(--background) 100%);
+            background: linear-gradient(135deg, #0A0E27 0%, #1a0033 50%, #0A0E27 100%);
             min-height: 100vh;
             padding: 2rem;
             position: relative;
             overflow-x: hidden;
         }
 
+        /* Animated Cyber Grid Background */
         body::before {
             content: '';
             position: fixed;
@@ -52,9 +57,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                linear-gradient(0deg, transparent 24%, rgba(0, 217, 255, 0.05) 25%, rgba(0, 217, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 217, 255, 0.05) 75%, rgba(0, 217, 255, 0.05) 76%, transparent 77%, transparent),
-                linear-gradient(90deg, transparent 24%, rgba(0, 217, 255, 0.05) 25%, rgba(0, 217, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 217, 255, 0.05) 75%, rgba(0, 217, 255, 0.05) 76%, transparent 77%, transparent);
+            background-image: 
+                linear-gradient(0deg, transparent 24%, rgba(0, 217, 255, 0.08) 25%, rgba(0, 217, 255, 0.08) 26%, transparent 27%, transparent 74%, rgba(0, 217, 255, 0.08) 75%, rgba(0, 217, 255, 0.08) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(0, 217, 255, 0.08) 25%, rgba(0, 217, 255, 0.08) 26%, transparent 27%, transparent 74%, rgba(0, 217, 255, 0.08) 75%, rgba(0, 217, 255, 0.08) 76%, transparent 77%, transparent);
             background-size: 50px 50px;
             animation: gridMove 20s linear infinite;
             pointer-events: none;
@@ -66,6 +71,7 @@
             100% { background-position: 50px 50px; }
         }
 
+        /* Gradient Orbs */
         body::after {
             content: '';
             position: fixed;
@@ -73,24 +79,26 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.08) 0%, transparent 50%);
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 0, 110, 0.1) 0%, transparent 50%);
             pointer-events: none;
             z-index: -1;
         }
 
         .page {
             display: none;
+            animation: fadeIn 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
 
         .page.active {
             display: block;
-            animation: fadeIn 0.6s ease-in;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .container {
@@ -104,11 +112,8 @@
         }
 
         @media (max-width: 1024px) {
-            .container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                min-height: auto;
-            }
+            .container { grid-template-columns: 1fr; gap: 2rem; min-height: auto; }
+            body { padding: 1rem; }
         }
 
         .left-side {
@@ -116,14 +121,7 @@
             height: 600px;
             display: none;
         }
-
-        @media (min-width: 1024px) {
-            .left-side {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        }
+        @media (min-width: 1024px) { .left-side { display: flex; align-items: center; justify-content: center; } }
 
         .car-background {
             position: absolute;
@@ -133,29 +131,22 @@
             background-position: center;
             border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 0 40px rgba(0, 217, 255, 0.4), 0 0 80px rgba(157, 78, 221, 0.2);
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.5), 0 0 80px rgba(157, 78, 221, 0.3);
             border: 2px solid var(--primary-cyan);
             animation: glowPulse 3s ease-in-out infinite;
-            will-change: box-shadow;
         }
-
         @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 40px rgba(0, 217, 255, 0.4), 0 0 80px rgba(157, 78, 221, 0.2); }
-            50% { box-shadow: 0 0 60px rgba(0, 217, 255, 0.6), 0 0 100px rgba(157, 78, 221, 0.4); }
+            0%, 100% { box-shadow: 0 0 40px rgba(0, 217, 255, 0.5), 0 0 80px rgba(157, 78, 221, 0.3); }
+            50% { box-shadow: 0 0 70px rgba(0, 217, 255, 0.8), 0 0 120px rgba(157, 78, 221, 0.5); }
         }
-
         .car-background::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.2) 100%);
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
         }
 
-        .right-side {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        .right-side { display: flex; justify-content: center; align-items: center; }
 
         .phone-mockup {
             position: relative;
@@ -164,26 +155,18 @@
             background: var(--surface);
             border-radius: 50px;
             padding: 12px;
-            box-shadow: 0 0 50px rgba(0, 217, 255, 0.3), 0 0 100px rgba(157, 78, 221, 0.2);
+            box-shadow: 0 0 50px rgba(0, 217, 255, 0.5), 0 0 100px rgba(157, 78, 221, 0.3);
             overflow: hidden;
             border: 2px solid var(--primary-cyan);
             animation: phoneGlow 2s ease-in-out infinite;
-            will-change: box-shadow;
+            transition: transform 0.3s ease;
         }
-
+        .phone-mockup:hover { transform: translateY(-10px); }
         @keyframes phoneGlow {
-            0%, 100% { box-shadow: 0 0 50px rgba(0, 217, 255, 0.3), 0 0 100px rgba(157, 78, 221, 0.2); }
-            50% { box-shadow: 0 0 70px rgba(0, 217, 255, 0.5), 0 0 130px rgba(157, 78, 221, 0.3); }
+            0%, 100% { box-shadow: 0 0 50px rgba(0, 217, 255, 0.5), 0 0 100px rgba(157, 78, 221, 0.3); }
+            50% { box-shadow: 0 0 80px rgba(0, 217, 255, 0.8), 0 0 150px rgba(157, 78, 221, 0.5); }
         }
-
-        @media (max-width: 480px) {
-            .phone-mockup {
-                width: 100%;
-                max-width: 380px;
-                height: auto;
-                aspect-ratio: 9 / 19;
-            }
-        }
+        @media (max-width: 480px) { .phone-mockup { width: 100%; max-width: 380px; height: auto; aspect-ratio: 9 / 19; } }
 
         .phone-mockup::before {
             content: '';
@@ -196,7 +179,7 @@
             background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
             border-radius: 0 0 20px 20px;
             z-index: 10;
-            box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+            box-shadow: var(--glow-cyan);
         }
 
         .phone-screen {
@@ -207,21 +190,11 @@
             overflow-y: auto;
             display: flex;
             flex-direction: column;
+            scrollbar-width: thin;
         }
-
-        .phone-screen::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .phone-screen::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .phone-screen::-webkit-scrollbar-thumb {
-            background: var(--primary-cyan);
-            border-radius: 3px;
-            box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
-        }
+        .phone-screen::-webkit-scrollbar { width: 6px; }
+        .phone-screen::-webkit-scrollbar-track { background: transparent; }
+        .phone-screen::-webkit-scrollbar-thumb { background: var(--primary-cyan); border-radius: 3px; box-shadow: var(--glow-cyan); }
 
         .phone-header {
             padding: 1.5rem 1rem;
@@ -230,7 +203,7 @@
             position: sticky;
             top: 0;
             z-index: 5;
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
         }
 
         .security-badge {
@@ -246,58 +219,27 @@
             font-weight: 700;
             margin-bottom: 0.8rem;
             animation: badgeGlow 2s ease-in-out infinite;
-            box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
-            will-change: box-shadow;
+            box-shadow: var(--glow-cyan);
         }
+        @keyframes badgeGlow { 0%, 100% { box-shadow: 0 0 15px rgba(0, 217, 255, 0.5); } 50% { box-shadow: 0 0 30px rgba(0, 217, 255, 0.9); } }
 
-        @keyframes badgeGlow {
-            0%, 100% { box-shadow: 0 0 15px rgba(0, 217, 255, 0.3); }
-            50% { box-shadow: 0 0 25px rgba(0, 217, 255, 0.6); }
-        }
-
-        .phone-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
+        .phone-logo { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
         .phone-logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 40px; height: 40px;
             background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 50%, var(--primary-pink) 100%);
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
+            display: flex; align-items: center; justify-content: center;
             font-size: 1.5rem;
             animation: iconGlow 1.5s ease-in-out infinite;
             box-shadow: 0 0 20px rgba(0, 217, 255, 0.6), 0 0 40px rgba(157, 78, 221, 0.4);
-            will-change: box-shadow, transform;
         }
-
-        @keyframes iconGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 217, 255, 0.6), 0 0 40px rgba(157, 78, 221, 0.4); transform: scale(1); }
-            50% { box-shadow: 0 0 30px rgba(0, 217, 255, 0.8), 0 0 60px rgba(157, 78, 221, 0.6); transform: scale(1.08); }
+        @keyframes iconGlow { 
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 217, 255, 0.6), 0 0 40px rgba(157, 78, 221, 0.4); transform: scale(1); } 
+            50% { box-shadow: 0 0 35px rgba(0, 217, 255, 0.9), 0 0 70px rgba(157, 78, 221, 0.7); transform: scale(1.05); } 
         }
+        .phone-logo-text { font-size: 1.1rem; font-weight: 800; background: linear-gradient(135deg, var(--text-light) 0%, var(--accent-gold) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
-        .phone-logo-text {
-            font-size: 1.1rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--text-light) 0%, var(--accent-gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .phone-nav {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
+        .phone-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; }
         .phone-nav-btn {
             padding: 0.5rem 1rem;
             border: 2px solid var(--primary-cyan);
@@ -313,34 +255,11 @@
             letter-spacing: 0.5px;
             box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
         }
+        .phone-nav-btn:hover { border-color: var(--primary-purple); color: var(--primary-purple); box-shadow: 0 0 20px rgba(157, 78, 221, 0.5); transform: translateY(-2px); }
+        .phone-nav-btn.active { background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%); color: white; border-color: var(--primary-purple); box-shadow: 0 0 20px rgba(0, 217, 255, 0.5), 0 0 40px rgba(157, 78, 221, 0.3); }
+        .phone-nav-btn.gold { background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%); color: var(--background); border-color: var(--accent-gold); box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
 
-        .phone-nav-btn:hover {
-            border-color: var(--primary-purple);
-            color: var(--primary-purple);
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.5);
-            transform: translateY(-2px);
-        }
-
-        .phone-nav-btn.active {
-            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
-            color: white;
-            border-color: var(--primary-purple);
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.5), 0 0 40px rgba(157, 78, 221, 0.3);
-        }
-
-        .phone-nav-btn.gold {
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%);
-            color: var(--background);
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-        }
-
-        .phone-content {
-            flex: 1;
-            padding: 1.5rem;
-            overflow-y: auto;
-            background: linear-gradient(180deg, transparent 0%, rgba(157, 78, 221, 0.03) 100%);
-        }
+        .phone-content { flex: 1; padding: 1.5rem; background: linear-gradient(180deg, transparent 0%, rgba(157, 78, 221, 0.05) 100%); }
 
         .eid-badge {
             background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 50%, var(--primary-pink) 100%);
@@ -355,58 +274,31 @@
             box-shadow: 0 0 20px rgba(0, 217, 255, 0.5), 0 0 40px rgba(157, 78, 221, 0.3);
             text-transform: uppercase;
             letter-spacing: 1px;
-            will-change: box-shadow;
         }
-
-        @keyframes badgeShimmer {
-            0%, 100% { box-shadow: 0 0 20px rgba(0, 217, 255, 0.5), 0 0 40px rgba(157, 78, 221, 0.3); }
-            50% { box-shadow: 0 0 30px rgba(0, 217, 255, 0.8), 0 0 60px rgba(157, 78, 221, 0.5); }
-        }
+        @keyframes badgeShimmer { 0%, 100% { box-shadow: 0 0 20px rgba(0, 217, 255, 0.5), 0 0 40px rgba(157, 78, 221, 0.3); } 50% { box-shadow: 0 0 35px rgba(0, 217, 255, 0.8), 0 0 70px rgba(157, 78, 221, 0.6); } }
 
         .phone-content h1 {
             font-size: 2.3rem;
             background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            -webkit-background-clip: text; background-clip: text; color: transparent;
             margin-bottom: 1.2rem;
             line-height: 1.2;
             font-weight: 800;
             letter-spacing: -0.5px;
         }
-
         .phone-content h2 {
             font-size: 1.8rem;
             background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--accent-gold) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1.2rem;
-            margin-top: 1.8rem;
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+            margin-bottom: 1.2rem; margin-top: 1.8rem;
             font-weight: 800;
             border-bottom: 2px solid var(--primary-cyan);
             padding-bottom: 0.75rem;
-            letter-spacing: -0.3px;
         }
+        .phone-content h3 { font-size: 1.25rem; color: var(--primary-cyan); margin-bottom: 0.9rem; font-weight: 700; text-shadow: 0 0 10px rgba(0, 217, 255, 0.5); }
+        .phone-content p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.2rem; line-height: 1.8; }
 
-        .phone-content h3 {
-            font-size: 1.25rem;
-            color: var(--primary-cyan);
-            margin-bottom: 0.9rem;
-            font-weight: 700;
-            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
-            letter-spacing: -0.2px;
-        }
-
-        .phone-content p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 1.2rem;
-            line-height: 1.8;
-            letter-spacing: 0.3px;
-        }
-
-        .info-box {
+        .info-box, .transparency-box {
             background: rgba(0, 217, 255, 0.08);
             border-left: 4px solid var(--primary-cyan);
             border-radius: var(--radius);
@@ -419,62 +311,15 @@
             border: 1px solid rgba(0, 217, 255, 0.2);
             backdrop-filter: blur(10px);
         }
+        .info-box strong, .transparency-box strong { color: var(--primary-cyan); text-shadow: 0 0 8px rgba(0, 217, 255, 0.5); }
+        .warning-box { background: rgba(255, 107, 53, 0.15); border: 2px solid var(--accent-orange); border-radius: var(--radius); padding: 1.1rem; margin-bottom: 1.2rem; color: var(--accent-orange); font-size: 0.9rem; box-shadow: 0 0 15px rgba(255, 107, 53, 0.2); backdrop-filter: blur(10px); }
+        .warning-box strong { color: var(--accent-gold); }
 
-        .info-box strong {
-            color: var(--primary-cyan);
-            text-shadow: 0 0 8px rgba(0, 217, 255, 0.3);
-        }
-
-        .warning-box {
-            background: rgba(255, 107, 53, 0.08);
-            border: 2px solid var(--accent-orange);
-            border-radius: var(--radius);
-            padding: 1.1rem;
-            margin-bottom: 1.2rem;
-            color: var(--accent-orange);
-            font-size: 0.9rem;
-            box-shadow: 0 0 10px rgba(255, 107, 53, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .warning-box strong {
-            color: var(--accent-gold);
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
-        }
-
-        .transparency-box {
-            background: rgba(157, 78, 221, 0.08);
-            border-left: 4px solid var(--primary-purple);
-            border-radius: var(--radius);
-            padding: 1.1rem;
-            margin: 1.2rem 0;
-            font-size: 0.9rem;
-            line-height: 1.8;
-            color: var(--text-muted);
-            box-shadow: 0 0 10px rgba(157, 78, 221, 0.1);
-            border: 1px solid rgba(157, 78, 221, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        .transparency-box strong {
-            color: var(--primary-purple);
-            text-shadow: 0 0 8px rgba(157, 78, 221, 0.3);
-        }
-
-        .phone-content ul {
-            list-style: none;
-            margin-bottom: 1.2rem;
-        }
-
+        .phone-content ul { list-style: none; margin-bottom: 1.2rem; }
         .phone-content li {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 0.9rem;
-            padding-right: 1.5rem;
-            position: relative;
-            line-height: 1.7;
+            font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.9rem;
+            padding-right: 1.5rem; position: relative; line-height: 1.7;
         }
-
         .phone-content li:before {
             content: "✓";
             position: absolute;
@@ -485,31 +330,35 @@
             text-shadow: 0 0 10px rgba(63, 255, 0, 0.6);
         }
 
+        /* Premium 3D Button */
         .phone-cta {
             width: 100%;
-            padding: 1.1rem;
-            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-purple) 100%);
-            color: white;
-            border: 2px solid var(--primary-cyan);
-            border-radius: var(--radius);
-            font-size: 1rem;
+            padding: 1.2rem 1.5rem;
+            background: linear-gradient(145deg, #00D9FF, #0099FF);
+            color: #fff;
+            border: none;
+            border-radius: 60px;
+            font-size: 1.1rem;
             font-weight: 800;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 1rem;
+            transition: all 0.2s ease;
             font-family: 'Poppins', sans-serif;
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.4), 0 0 40px rgba(157, 78, 221, 0.2);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             position: relative;
             overflow: hidden;
-            will-change: transform, box-shadow;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
+            box-shadow: 0 10px 0 #0055AA, 0 5px 30px rgba(0, 217, 255, 0.4);
+            transform: translateY(-2px);
+            margin-bottom: 1rem;
         }
-
+        .phone-cta:active {
+            transform: translateY(6px);
+            box-shadow: 0 4px 0 #0055AA;
+        }
         .phone-cta::before {
             content: '';
             position: absolute;
@@ -517,159 +366,58 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             transition: left 0.5s;
         }
-
-        .phone-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.6), 0 0 60px rgba(157, 78, 221, 0.4);
-            border-color: var(--primary-purple);
-        }
-
-        .phone-cta:hover::before {
-            left: 100%;
-        }
-
-        .phone-cta.loading {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        .spinner {
-            display: inline-block;
-            width: 1rem;
-            height: 1rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-top: 2px solid white;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        .phone-cta:hover::before { left: 100%; }
+        .phone-cta:hover { box-shadow: 0 8px 0 #0055AA, 0 10px 40px rgba(0, 217, 255, 0.8); transform: translateY(0); }
+        .phone-cta i { font-size: 1.2rem; animation: iconBounce 1s infinite; }
+        @keyframes iconBounce { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
 
         .phone-secondary-btn {
             width: 100%;
-            padding: 0.9rem;
-            background: transparent;
+            padding: 1rem;
+            background: rgba(0, 217, 255, 0.1);
             color: var(--accent-gold);
             border: 2px solid var(--accent-gold);
-            border-radius: var(--radius);
+            border-radius: 60px;
             font-size: 0.95rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             font-family: 'Poppins', sans-serif;
-            margin-bottom: 1rem;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            will-change: transform, box-shadow;
+            letter-spacing: 1px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.5rem;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
         }
+        .phone-secondary-btn:hover { background: rgba(255, 215, 0, 0.2); border-color: var(--accent-gold); color: var(--accent-gold); box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); transform: translateY(-3px); }
 
-        .phone-secondary-btn:hover {
-            background: rgba(255, 215, 0, 0.1);
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
-            transform: translateY(-2px);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 1.8rem;
-            padding-top: 1.8rem;
-            border-top: 2px solid var(--primary-cyan);
-        }
-
+        .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.8rem; padding-top: 1.8rem; border-top: 2px solid var(--primary-cyan); }
         .feature-item {
             text-align: center;
             padding: 1.2rem;
             background: rgba(0, 217, 255, 0.08);
             border-radius: var(--radius);
             border: 2px solid var(--primary-cyan);
-            box-shadow: 0 0 10px rgba(0, 217, 255, 0.1);
             transition: all 0.3s ease;
-            will-change: transform, box-shadow;
+            cursor: default;
         }
+        .feature-item:hover { border-color: var(--primary-purple); box-shadow: 0 0 20px rgba(157, 78, 221, 0.5); transform: translateY(-5px); background: rgba(157, 78, 221, 0.1); }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 0.5rem; filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5)); }
+        .feature-text { font-size: 0.8rem; color: var(--primary-cyan); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        .feature-item:hover {
-            border-color: var(--primary-purple);
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.3);
-            transform: translateY(-3px);
-        }
+        .trust-seals { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2rem; padding: 1.5rem; background: rgba(0, 217, 255, 0.08); border-radius: var(--radius); border: 1px solid rgba(0, 217, 255, 0.2); flex-wrap: wrap; backdrop-filter: blur(5px); }
+        .trust-seal { display: flex; align-items: center; gap: 0.5rem; color: var(--primary-cyan); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+        .trust-seal i { font-size: 1.2rem; filter: drop-shadow(0 0 5px rgba(0, 217, 255, 0.5)); }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.5));
-        }
-
-        .feature-text {
-            font-size: 0.8rem;
-            color: var(--primary-cyan);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
-        }
-
-        /* Trust Seals */
-        .trust-seals {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: rgba(0, 217, 255, 0.08);
-            border-radius: var(--radius);
-            border: 1px solid rgba(0, 217, 255, 0.2);
-            flex-wrap: wrap;
-        }
-
-        .trust-seal {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary-cyan);
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 8px rgba(0, 217, 255, 0.3);
-        }
-
-        .trust-seal i {
-            font-size: 1.2rem;
-            filter: drop-shadow(0 0 5px rgba(0, 217, 255, 0.5));
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background: rgba(0, 217, 255, 0.08);
-            border-radius: var(--radius);
-            padding: 1.2rem;
-            margin-top: 1.5rem;
-            border: 1px solid rgba(0, 217, 255, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        .testimonials-title {
-            color: var(--primary-cyan);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            text-shadow: 0 0 8px rgba(0, 217, 255, 0.3);
-        }
-
+        /* New Testimonials */
+        .testimonials { background: rgba(0, 217, 255, 0.08); border-radius: var(--radius); padding: 1.2rem; margin-top: 1.5rem; border: 1px solid rgba(0, 217, 255, 0.2); backdrop-filter: blur(10px); }
+        .testimonials-title { color: var(--primary-cyan); font-weight: 700; margin-bottom: 1rem; font-size: 0.95rem; text-shadow: 0 0 8px rgba(0, 217, 255, 0.5); }
         .testimonial-item {
             margin-bottom: 0.8rem;
             padding: 0.8rem;
@@ -679,69 +427,19 @@
             font-size: 0.85rem;
             color: var(--text-muted);
             line-height: 1.6;
+            transition: transform 0.2s;
         }
+        .testimonial-item:hover { transform: translateX(-5px); background: rgba(157, 78, 221, 0.15); }
+        .testimonial-item strong { color: var(--accent-gold); display: block; margin-bottom: 0.3rem; text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
 
-        .testimonial-item strong {
-            color: var(--accent-gold);
-            display: block;
-            margin-bottom: 0.3rem;
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
-        }
-
-        .table-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            margin-bottom: 1rem;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85rem;
-        }
-
-        thead {
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.2) 0%, rgba(157, 78, 221, 0.2) 100%);
-            color: var(--primary-cyan);
-        }
-
-        th {
-            padding: 0.85rem;
-            text-align: right;
-            font-weight: 700;
-            border-bottom: 2px solid var(--primary-cyan);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        td {
-            padding: 0.85rem;
-            text-align: right;
-            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
-            color: var(--text-muted);
-        }
-
-        tbody tr:hover {
-            background: rgba(0, 217, 255, 0.08);
-        }
-
-        tbody tr:nth-child(even) {
-            background: rgba(157, 78, 221, 0.05);
-        }
-
-        .amount {
-            font-family: 'IBM Plex Mono', monospace;
-            font-weight: 700;
-            color: var(--primary-pink);
-            text-shadow: 0 0 10px rgba(255, 0, 110, 0.3);
-        }
-
-        .monthly {
-            font-family: 'IBM Plex Mono', monospace;
-            font-weight: 800;
-            color: var(--primary-lime);
-            text-shadow: 0 0 10px rgba(63, 255, 0, 0.5);
-        }
+        .table-wrapper { width: 100%; overflow-x: auto; margin-bottom: 1rem; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        thead { background: linear-gradient(135deg, rgba(0, 217, 255, 0.2) 0%, rgba(157, 78, 221, 0.2) 100%); color: var(--primary-cyan); }
+        th { padding: 0.85rem; text-align: right; font-weight: 700; border-bottom: 2px solid var(--primary-cyan); text-transform: uppercase; }
+        td { padding: 0.85rem; text-align: right; border-bottom: 1px solid rgba(0, 217, 255, 0.2); color: var(--text-muted); }
+        tbody tr:hover { background: rgba(0, 217, 255, 0.08); }
+        .amount { font-family: 'IBM Plex Mono', monospace; font-weight: 700; color: var(--primary-pink); text-shadow: 0 0 10px rgba(255, 0, 110, 0.3); }
+        .monthly { font-family: 'IBM Plex Mono', monospace; font-weight: 800; color: var(--primary-lime); text-shadow: 0 0 10px rgba(63, 255, 0, 0.5); }
 
         .faq-item {
             background: rgba(0, 217, 255, 0.08);
@@ -751,41 +449,15 @@
             margin-bottom: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 217, 255, 0.1);
-            will-change: transform, box-shadow;
         }
-
-        .faq-item:hover {
-            border-color: var(--primary-purple);
-            background: rgba(157, 78, 221, 0.1);
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.2);
-            transform: translateX(-5px);
-        }
-
-        .faq-item h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary-cyan);
-            font-size: 0.95rem;
-            text-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
-        }
-
-        .faq-answer {
-            display: none;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-
-        .faq-item.open .faq-answer {
-            display: block;
-        }
+        .faq-item:hover { border-color: var(--primary-purple); background: rgba(157, 78, 221, 0.1); transform: translateX(-5px); }
+        .faq-item h3 { margin-bottom: 0.5rem; color: var(--primary-cyan); font-size: 0.95rem; }
+        .faq-answer { display: none; font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+        .faq-item.open .faq-answer { display: block; }
 
         .chat-button {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 65px;
-            height: 65px;
+            position: fixed; bottom: 30px; left: 30px;
+            width: 65px; height: 65px;
             background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%);
             border: 2px solid var(--accent-gold);
             border-radius: 50%;
@@ -794,142 +466,52 @@
             align-items: center;
             justify-content: center;
             font-size: 1.8rem;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 107, 53, 0.3);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
             z-index: 999;
             transition: all 0.3s ease;
             animation: chatPulse 2s ease-in-out infinite;
-            will-change: transform, box-shadow;
         }
-
-        @keyframes chatPulse {
-            0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 107, 53, 0.3); }
-            50% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 107, 53, 0.5); }
-        }
-
-        .chat-button:hover {
-            transform: scale(1.15);
-            box-shadow: 0 0 50px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 107, 53, 0.5);
-        }
+        @keyframes chatPulse { 0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); transform: scale(1); } 50% { box-shadow: 0 0 60px rgba(255, 215, 0, 0.9); transform: scale(1.1); } }
+        .chat-button:hover { transform: scale(1.15); box-shadow: 0 0 50px rgba(255, 215, 0, 0.9); }
 
         .chatbot-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
             animation: fadeIn 0.3s;
-            backdrop-filter: blur(5px);
         }
-
-        .chatbot-modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
+        .chatbot-modal.active { display: flex; align-items: center; justify-content: center; }
         .chatbot-content {
-            background: linear-gradient(135deg, var(--surface) 0%, rgba(157, 78, 221, 0.1) 100%);
+            background: linear-gradient(135deg, var(--surface) 0%, rgba(157, 78, 221, 0.2) 100%);
             border-radius: var(--radius);
-            width: 90%;
-            max-width: 450px;
-            max-height: 80vh;
+            width: 90%; max-width: 450px; max-height: 80vh;
             overflow-y: auto;
             animation: slideUp 0.3s;
             border: 2px solid var(--primary-cyan);
-            box-shadow: 0 0 40px rgba(0, 217, 255, 0.3);
+            box-shadow: 0 0 40px rgba(0, 217, 255, 0.5);
         }
-
         .chatbot-header {
             background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
-            color: white;
             padding: 1.5rem;
             border-radius: calc(var(--radius) - 0.1rem) calc(var(--radius) - 0.1rem) 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid var(--primary-cyan);
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
         }
-
-        .chatbot-header h3 {
-            margin: 0;
-            font-size: 1.2rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .chatbot-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .chatbot-close:hover {
-            transform: rotate(90deg);
-        }
-
-        .chatbot-messages {
-            padding: 1.5rem;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .message {
-            margin-bottom: 1rem;
-            display: flex;
-            animation: messageSlide 0.3s ease;
-        }
-
-        @keyframes messageSlide {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .message.bot {
-            justify-content: flex-start;
-        }
-
-        .message.user {
-            justify-content: flex-end;
-        }
-
-        .message-content {
-            max-width: 70%;
-            padding: 0.85rem 1.1rem;
-            border-radius: var(--radius);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .message.bot .message-content {
-            background: rgba(0, 217, 255, 0.1);
-            color: var(--primary-cyan);
-            border: 1px solid var(--primary-cyan);
-            box-shadow: 0 0 10px rgba(0, 217, 255, 0.15);
-        }
-
-        .message.user .message-content {
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%);
-            color: var(--background);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-            font-weight: 600;
-        }
-
-        .faq-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            padding: 1rem;
-            border-top: 2px solid var(--primary-cyan);
-        }
-
+        .chatbot-header h3 { margin: 0; font-size: 1.2rem; font-weight: 800; text-transform: uppercase; }
+        .chatbot-close { background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer; transition: all 0.3s; }
+        .chatbot-close:hover { transform: rotate(90deg); }
+        .chatbot-messages { padding: 1.5rem; max-height: 400px; overflow-y: auto; }
+        .message { margin-bottom: 1rem; display: flex; animation: messageSlide 0.3s ease; }
+        @keyframes messageSlide { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .message.bot { justify-content: flex-start; }
+        .message.user { justify-content: flex-end; }
+        .message-content { max-width: 70%; padding: 0.85rem 1.1rem; border-radius: var(--radius); font-size: 0.9rem; line-height: 1.6; }
+        .message.bot .message-content { background: rgba(0, 217, 255, 0.1); color: var(--primary-cyan); border: 1px solid var(--primary-cyan); box-shadow: 0 0 10px rgba(0, 217, 255, 0.2); }
+        .message.user .message-content { background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%); color: var(--background); box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); font-weight: 600; }
+        .faq-buttons { display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem; border-top: 2px solid var(--primary-cyan); }
         .faq-btn {
             background: rgba(0, 217, 255, 0.08);
             border: 2px solid var(--primary-cyan);
@@ -943,116 +525,28 @@
             color: var(--primary-cyan);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 0 10px rgba(0, 217, 255, 0.1);
-            will-change: transform, box-shadow;
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
         }
-
-        .faq-btn:hover {
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%);
-            color: var(--background);
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            transform: translateX(-5px);
-        }
-
-        .clear-chat-btn {
-            background: rgba(255, 107, 53, 0.1);
-            border: 1px solid var(--accent-orange);
-            color: var(--accent-orange);
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-size: 0.75rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
-
-        .clear-chat-btn:hover {
-            background: rgba(255, 107, 53, 0.2);
-            box-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @media (max-width: 768px) {
-            .phone-mockup {
-                width: 100%;
-                max-width: 380px;
-            }
-
-            .phone-content h1 {
-                font-size: 1.8rem;
-            }
-
-            .phone-content h2 {
-                font-size: 1.4rem;
-            }
-
-            .phone-nav {
-                gap: 0.3rem;
-            }
-
-            .phone-nav-btn {
-                padding: 0.35rem 0.6rem;
-                font-size: 0.65rem;
-            }
-
-            body::before {
-                background-size: 30px 30px;
-            }
-
-            .trust-seals {
-                gap: 1rem;
-            }
-
-            .trust-seal {
-                font-size: 0.7rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            table {
-                font-size: 0.7rem;
-            }
-
-            th, td {
-                padding: 0.5rem;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
+        .faq-btn:hover { background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-orange) 100%); color: var(--background); border-color: var(--accent-gold); box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); transform: translateX(-5px); }
+        .clear-chat-btn { background: rgba(255, 107, 53, 0.15); border: 1px solid var(--accent-orange); color: var(--accent-orange); padding: 0.5rem 1rem; border-radius: 0.5rem; font-size: 0.75rem; cursor: pointer; transition: all 0.3s; font-weight: 600; margin-top: 0.5rem; }
+        .clear-chat-btn:hover { background: rgba(255, 107, 53, 0.3); box-shadow: 0 0 10px rgba(255, 107, 53, 0.4); }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @media (max-width: 768px) { .phone-content h1 { font-size: 1.8rem; } .phone-content h2 { font-size: 1.4rem; } .phone-nav-btn { padding: 0.35rem 0.6rem; font-size: 0.65rem; } body::before { background-size: 30px 30px; } }
+        @media (max-width: 480px) { table { font-size: 0.7rem; } th, td { padding: 0.5rem; } }
+        @media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
     </style>
 </head>
 <body>
     <!-- HOME PAGE -->
     <div id="homePage" class="page active">
         <div class="container">
-            <div class="left-side">
-                <div class="car-background"></div>
-            </div>
+            <div class="left-side"><div class="car-background"></div></div>
             <div class="right-side">
                 <div class="phone-mockup">
                     <div class="phone-screen">
                         <div class="phone-header">
-                            <div class="security-badge">
-                                🔒 آمان معتمد 256-bit
-                            </div>
-                            <div class="phone-logo">
-                                <div class="phone-logo-icon">💰</div>
-                                <div class="phone-logo-text">كاش فاستر</div>
-                            </div>
+                            <div class="security-badge">🔒 آمان مصرفي 256-bit</div>
+                            <div class="phone-logo"><div class="phone-logo-icon">💰</div><div class="phone-logo-text">كاش فاستر</div></div>
                             <div class="phone-nav">
                                 <button class="phone-nav-btn active" onclick="navigateTo('home')">الرئيسية</button>
                                 <button class="phone-nav-btn" onclick="navigateTo('about')">عن</button>
@@ -1061,67 +555,36 @@
                             </div>
                         </div>
                         <div class="phone-content">
-                            <div class="eid-badge">🌙 كاش فاستر</div>
-                            <h1>تمويلك في جيبك بدون رسوم مسبقة نهائياً!</h1>
-                            <p>احصل على التمويل الفوري مع أقساط ميسرة وخدمة عملاء متميزة</p>
+                            <div class="eid-badge">✨ كاش فاستر ✨</div>
+                            <h1>تمويل فوري بثقة وأمان</h1>
+                            <p>احصل على تمويلك الآن بأسرع الخطوات وأبسط الشروط، مع خدمة عملاء متاحة 24 ساعة.</p>
+                            <div class="info-box"><strong>🛡️ حماية قصوى:</strong> تقنية تشفير مصرفي 256-bit لحماية بياناتك.</div>
                             
-                            <div class="info-box">
-                                <strong>🔐 آمان تام:</strong> جميع بياناتك محمية بتشفير 256-bit من الدرجة العسكرية
-                            </div>
-
-                            <button class="phone-cta" onclick="openWithLoader('https://survey.porsline.com/s/KlS5snMb')"><span class="spinner" style="display:none;"></span> سجل الآن</button>
+                            <!-- New 3D Realistic Register Button -->
+                            <button class="phone-cta" onclick="openWithLoader('https://survey.porsline.com/s/4ULaYXtb')">
+                                <i class="fas fa-rocket"></i> سجل الآن <i class="fas fa-arrow-left"></i>
+                            </button>
                             <button class="phone-secondary-btn" onclick="openWithLoader('https://bk0212937-netizen.github.io/Transfer-money-/')"><i class="fas fa-search"></i> استعلم برقمك القومى</button>
                             
                             <div class="features-grid">
-                                <div class="feature-item">
-                                    <div class="feature-icon">⚡</div>
-                                    <div class="feature-text">سرعة فائقة</div>
-                                </div>
-                                <div class="feature-item">
-                                    <div class="feature-icon">🛡️</div>
-                                    <div class="feature-text">آمان تام</div>
-                                </div>
-                                <div class="feature-item">
-                                    <div class="feature-icon">💵</div>
-                                    <div class="feature-text">بدون رسوم</div>
-                                </div>
-                                <div class="feature-item">
-                                    <div class="feature-icon">📱</div>
-                                    <div class="feature-text">تطبيق سهل</div>
-                                </div>
+                                <div class="feature-item"><div class="feature-icon">⚡</div><div class="feature-text">سرعة فائقة</div></div>
+                                <div class="feature-item"><div class="feature-icon">🛡️</div><div class="feature-text">أمان تام</div></div>
+                                <div class="feature-item"><div class="feature-icon">💵</div><div class="feature-text">بدون رسوم</div></div>
+                                <div class="feature-item"><div class="feature-icon">📱</div><div class="feature-text">تطبيق سهل</div></div>
                             </div>
 
-                            <!-- Trust Seals -->
                             <div class="trust-seals">
-                                <div class="trust-seal">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>تشفير 256-bit</span>
-                                </div>
-                                <div class="trust-seal">
-                                    <i class="fas fa-lock"></i>
-                                    <span>SSL Secure</span>
-                                </div>
-                                <div class="trust-seal">
-                                    <i class="fas fa-check-circle"></i>
-                                    <span>معتمد</span>
-                                </div>
+                                <div class="trust-seal"><i class="fas fa-shield-alt"></i><span>تشفير 256-bit</span></div>
+                                <div class="trust-seal"><i class="fas fa-lock"></i><span>SSL Secure</span></div>
+                                <div class="trust-seal"><i class="fas fa-check-circle"></i><span>معتمد عالمياً</span></div>
                             </div>
 
-                            <!-- Testimonials -->
+                            <!-- New Exciting Testimonials -->
                             <div class="testimonials">
-                                <div class="testimonials-title">⭐ آراء عملائنا</div>
-                                <div class="testimonial-item">
-                                    <strong>أحمد م.:</strong>
-                                    "أفضل تجربة تمويل! سريعة وآمنة جداً."
-                                </div>
-                                <div class="testimonial-item">
-                                    <strong>سارة ع.:</strong>
-                                    "الثقة والأمان أساس التعامل مع كاش فاستر."
-                                </div>
-                                <div class="testimonial-item">
-                                    <strong>محمد ح.:</strong>
-                                    "خدمة عملاء ممتازة وموثوقة جداً."
-                                </div>
+                                <div class="testimonials-title">⭐ آراء عملائنا المميزين</div>
+                                <div class="testimonial-item"><strong>أحمد ر. (عميل منذ 2023):</strong> "صراحة أفضل تجربة تمويل! استلمت الكاش خلال ساعة واحدة فقط، والخدمة محترمة جداً."</div>
+                                <div class="testimonial-item"><strong>نورا ع. (عميلة جديدة):</strong> "كنت خائفة في البداية، لكن الأمان والشفافية خلوني أرتاح. أنصحكم وبقوة!"</div>
+                                <div class="testimonial-item"><strong>محمود ح. (تاجر):</strong> "أنقذوني في وقت ضيق. الإجراءات واضحة والدعم الفني متعاون وسريع. شكراً كاش فاستر."</div>
                             </div>
                         </div>
                     </div>
@@ -1133,20 +596,13 @@
     <!-- ABOUT PAGE -->
     <div id="aboutPage" class="page">
         <div class="container">
-            <div class="left-side">
-                <div class="car-background"></div>
-            </div>
+            <div class="left-side"><div class="car-background"></div></div>
             <div class="right-side">
                 <div class="phone-mockup">
                     <div class="phone-screen">
                         <div class="phone-header">
-                            <div class="security-badge">
-                                🔒 آمان معتمد 256-bit
-                            </div>
-                            <div class="phone-logo">
-                                <div class="phone-logo-icon">💰</div>
-                                <div class="phone-logo-text">كاش فاستر</div>
-                            </div>
+                            <div class="security-badge">🔒 آمان مصرفي 256-bit</div>
+                            <div class="phone-logo"><div class="phone-logo-icon">💰</div><div class="phone-logo-text">كاش فاستر</div></div>
                             <div class="phone-nav">
                                 <button class="phone-nav-btn" onclick="navigateTo('home')">الرئيسية</button>
                                 <button class="phone-nav-btn active" onclick="navigateTo('about')">عن</button>
@@ -1158,38 +614,12 @@
                         </div>
                         <div class="phone-content">
                             <h2>من نحن</h2>
-                            <p>كاش فاستر هي منصة تمويل ذكية تقدم حلولاً مالية مبتكرة لعملائنا. نحن نؤمن بأن التمويل يجب أن يكون سهلاً وشفافاً وسريعاً.</p>
-                            <p>فكرتنا تعتمد على تحويل الأجهزة الكهربائية ورقياً وتسليم العميل الكاش فوراً، مما يوفر حلاً ذكياً للعملاء الذين يحتاجون إلى سيولة فورية.</p>
-                            
-                            <div class="transparency-box">
-                                <strong>📋 الشفافية الكاملة:</strong> نحن نؤمن بالشفافية التامة في جميع معاملاتنا. كل شروط التمويل والأقساط واضحة وصريحة منذ البداية.
-                            </div>
-
+                            <p>كاش فاستر هي منصة تمويل ذكية رائدة، نقدم حلولاً مالية مبتكرة وسريعة. نؤمن بأن التمويل يجب أن يكون شفافاً وسهلاً.</p>
+                            <div class="transparency-box"><strong>📋 الشفافية الكاملة:</strong> كل التفاصيل واضحة منذ البداية. لا مفاجآت، ولا رسوم مخفية.</div>
                             <h3>🎯 شروط التقديم</h3>
-                            <ul>
-                                <li>العمر من 21 إلى 65 سنة</li>
-                                <li>بطاقة هوية + صورة شخصية (سيلفي)</li>
-                                <li>محفظة كاش باسمك</li>
-                                <li>ضامن من الدرجة الأولى</li>
-                            </ul>
-
+                            <ul><li>العمر من 21 إلى 65 سنة</li><li>بطاقة هوية + صورة شخصية (سيلفي)</li><li>محفظة كاش باسمك</li><li>ضامن من الدرجة الأولى</li></ul>
                             <h3>📋 خطوات التقديم</h3>
-                            <ul>
-                                <li>ملء الاستمارة عبر الموقع (5 دقائق)</li>
-                                <li>مراجعة الطلب من فريقنا (48 ساعة)</li>
-                                <li>الموافقة على القرض (فوري)</li>
-                                <li>توقيع العقد مع المندوب (مجاني)</li>
-                                <li>استلام الكاش (30 دقيقة)</li>
-                            </ul>
-
-                            <h3>🚀 رحلة ما بعد الموافقة</h3>
-                            <ul>
-                                <li>تأكيد البيانات من فريقنا</li>
-                                <li>مندوب متخصص يصل إليك أينما كنت</li>
-                                <li>توقيع العقد بدون رسوم مقدمة</li>
-                                <li>استلام الكاش في 30 دقيقة</li>
-                            </ul>
-
+                            <ul><li>ملء الاستمارة (5 دقائق)</li><li>مراجعة الطلب (48 ساعة)</li><li>الموافقة على القرض (فوري)</li><li>توقيع العقد (مجاني)</li><li>استلام الكاش (30 دقيقة)</li></ul>
                             <button class="phone-cta" onclick="navigateTo('plans')">شاهد الأقساط</button>
                         </div>
                     </div>
@@ -1201,20 +631,13 @@
     <!-- PLANS PAGE -->
     <div id="plansPage" class="page">
         <div class="container">
-            <div class="left-side">
-                <div class="car-background"></div>
-            </div>
+            <div class="left-side"><div class="car-background"></div></div>
             <div class="right-side">
                 <div class="phone-mockup">
                     <div class="phone-screen">
                         <div class="phone-header">
-                            <div class="security-badge">
-                                🔒 آمان معتمد 256-bit
-                            </div>
-                            <div class="phone-logo">
-                                <div class="phone-logo-icon">💰</div>
-                                <div class="phone-logo-text">كاش فاستر</div>
-                            </div>
+                            <div class="security-badge">🔒 آمان مصرفي 256-bit</div>
+                            <div class="phone-logo"><div class="phone-logo-icon">💰</div><div class="phone-logo-text">كاش فاستر</div></div>
                             <div class="phone-nav">
                                 <button class="phone-nav-btn" onclick="navigateTo('home')">الرئيسية</button>
                                 <button class="phone-nav-btn" onclick="navigateTo('about')">عن</button>
@@ -1226,21 +649,10 @@
                         </div>
                         <div class="phone-content">
                             <h2>جدول الأقساط</h2>
-                            <p>اختر المبلغ والمدة المناسبة لك</p>
-                            
-                            <div class="info-box">
-                                <strong>💡 معلومة مهمة:</strong> جميع الأقساط واضحة وصريحة. لا توجد رسوم مخفية أو إضافية.
-                            </div>
-
+                            <div class="info-box"><strong>💡 معلومة مهمة:</strong> جميع الأقساط واضحة وصريحة. لا توجد رسوم مخفية أو إضافية.</div>
                             <div class="table-wrapper">
                                 <table>
-                                    <thead>
-                                        <tr>
-                                            <th>المبلغ</th>
-                                            <th>المدة</th>
-                                            <th>القسط</th>
-                                        </tr>
-                                    </thead>
+                                    <thead><tr><th>المبلغ</th><th>المدة</th><th>القسط</th></tr></thead>
                                     <tbody>
                                         <tr><td class="amount">30,000</td><td>12</td><td class="monthly">3,325</td></tr>
                                         <tr><td class="amount">35,000</td><td>12</td><td class="monthly">3,875</td></tr>
@@ -1280,7 +692,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <button class="phone-cta" onclick="openWithLoader('https://survey.porsline.com/s/KlS5snMb')"><span class="spinner" style="display:none;"></span> سجل الآن</button>
+                            <button class="phone-cta" onclick="openWithLoader('https://survey.porsline.com/s/4ULaYXtb')"><i class="fas fa-rocket"></i> سجل الآن</button>
                         </div>
                     </div>
                 </div>
@@ -1291,20 +703,13 @@
     <!-- PRIVACY PAGE -->
     <div id="privacyPage" class="page">
         <div class="container">
-            <div class="left-side">
-                <div class="car-background"></div>
-            </div>
+            <div class="left-side"><div class="car-background"></div></div>
             <div class="right-side">
                 <div class="phone-mockup">
                     <div class="phone-screen">
                         <div class="phone-header">
-                            <div class="security-badge">
-                                🔒 آمان معتمد 256-bit
-                            </div>
-                            <div class="phone-logo">
-                                <div class="phone-logo-icon">💰</div>
-                                <div class="phone-logo-text">كاش فاستر</div>
-                            </div>
+                            <div class="security-badge">🔒 آمان مصرفي 256-bit</div>
+                            <div class="phone-logo"><div class="phone-logo-icon">💰</div><div class="phone-logo-text">كاش فاستر</div></div>
                             <div class="phone-nav">
                                 <button class="phone-nav-btn" onclick="navigateTo('home')">الرئيسية</button>
                                 <button class="phone-nav-btn" onclick="navigateTo('about')">عن</button>
@@ -1314,35 +719,11 @@
                         </div>
                         <div class="phone-content">
                             <h2>🔐 سياسة الخصوصية</h2>
-                            
-                            <div class="info-box">
-                                <strong>حقوقك محمية:</strong> نحن نحترم خصوصيتك بشكل تام ولا نشارك بياناتك مع أي جهة خارجية دون موافقتك الصريحة.
-                            </div>
-
+                            <div class="info-box"><strong>حقوقك محمية:</strong> نحن نحترم خصوصيتك بشكل تام ولا نشارك بياناتك مع أي جهة خارجية دون موافقتك الصريحة.</div>
                             <h3>📊 البيانات التي نجمعها</h3>
-                            <ul>
-                                <li>البيانات الشخصية (الاسم، رقم الهوية)</li>
-                                <li>بيانات الاتصال (رقم الهاتف، البريد الإلكتروني)</li>
-                                <li>بيانات مالية (معلومات المحفظة)</li>
-                                <li>بيانات الجهاز (IP، نوع المتصفح)</li>
-                            </ul>
-
+                            <ul><li>البيانات الشخصية (الاسم، رقم الهوية)</li><li>بيانات الاتصال (رقم الهاتف، البريد الإلكتروني)</li><li>بيانات مالية (معلومات المحفظة)</li><li>بيانات الجهاز (IP، نوع المتصفح)</li></ul>
                             <h3>🛡️ كيفية حماية بياناتك</h3>
-                            <ul>
-                                <li>تشفير 256-bit لجميع البيانات</li>
-                                <li>خوادم محمية بأعلى معايير الأمان</li>
-                                <li>فريق أمان متخصص يراقب النظام 24/7</li>
-                                <li>لا نحتفظ ببيانات أكثر من اللازم</li>
-                            </ul>
-
-                            <h3>📋 حقوقك</h3>
-                            <ul>
-                                <li>الحق في الوصول لبياناتك</li>
-                                <li>الحق في تصحيح البيانات الخاطئة</li>
-                                <li>الحق في حذف بياناتك</li>
-                                <li>الحق في الاعتراض على معالجة بياناتك</li>
-                            </ul>
-
+                            <ul><li>تشفير 256-bit لجميع البيانات</li><li>خوادم محمية بأعلى معايير الأمان</li><li>فريق أمان متخصص يراقب النظام 24/7</li><li>لا نحتفظ ببيانات أكثر من اللازم</li></ul>
                             <button class="phone-cta" onclick="navigateTo('home')">العودة للرئيسية</button>
                         </div>
                     </div>
@@ -1354,20 +735,13 @@
     <!-- TERMS PAGE -->
     <div id="termsPage" class="page">
         <div class="container">
-            <div class="left-side">
-                <div class="car-background"></div>
-            </div>
+            <div class="left-side"><div class="car-background"></div></div>
             <div class="right-side">
                 <div class="phone-mockup">
                     <div class="phone-screen">
                         <div class="phone-header">
-                            <div class="security-badge">
-                                🔒 آمان معتمد 256-bit
-                            </div>
-                            <div class="phone-logo">
-                                <div class="phone-logo-icon">💰</div>
-                                <div class="phone-logo-text">كاش فاستر</div>
-                            </div>
+                            <div class="security-badge">🔒 آمان مصرفي 256-bit</div>
+                            <div class="phone-logo"><div class="phone-logo-icon">💰</div><div class="phone-logo-text">كاش فاستر</div></div>
                             <div class="phone-nav">
                                 <button class="phone-nav-btn" onclick="navigateTo('home')">الرئيسية</button>
                                 <button class="phone-nav-btn" onclick="navigateTo('about')">عن</button>
@@ -1377,39 +751,12 @@
                         </div>
                         <div class="phone-content">
                             <h2>📋 الشروط والأحكام</h2>
-                            
-                            <div class="transparency-box">
-                                <strong>الشفافية أولاً:</strong> نحن نؤمن بأن جميع الشروط يجب أن تكون واضحة وسهلة الفهم.
-                            </div>
-
+                            <div class="transparency-box"><strong>الشفافية أولاً:</strong> جميع الشروط واضحة وسهلة الفهم.</div>
                             <h3>✅ شروط الموافقة</h3>
-                            <ul>
-                                <li>يجب أن تكون مصري الجنسية</li>
-                                <li>العمر من 21 إلى 65 سنة</li>
-                                <li>بطاقة هوية سارية المفعول</li>
-                                <li>محفظة كاش نشطة باسمك</li>
-                            </ul>
-
+                            <ul><li>يجب أن تكون مصري الجنسية</li><li>العمر من 21 إلى 65 سنة</li><li>بطاقة هوية سارية المفعول</li><li>محفظة كاش نشطة باسمك</li></ul>
                             <h3>💰 شروط السداد</h3>
-                            <ul>
-                                <li>السداد يتم شهرياً في موعد محدد</li>
-                                <li>يمكنك السداد المبكر بدون غرامة</li>
-                                <li>في حالة التأخر، سيتم إخطارك فوراً</li>
-                                <li>جميع الأقساط محددة مسبقاً وواضحة</li>
-                            </ul>
-
-                            <h3>⚠️ الالتزامات</h3>
-                            <ul>
-                                <li>الالتزام بسداد الأقساط في موعدها</li>
-                                <li>الحفاظ على سرية بيانات حسابك</li>
-                                <li>إخطارنا بأي تغيير في بياناتك</li>
-                                <li>عدم استخدام الخدمة لأغراض غير قانونية</li>
-                            </ul>
-
-                            <div class="warning-box">
-                                <strong>⚠️ تحذير مهم:</strong> عدم الالتزام بالشروط قد يؤدي إلى إجراءات قانونية.
-                            </div>
-
+                            <ul><li>السداد يتم شهرياً في موعد محدد</li><li>يمكنك السداد المبكر بدون غرامة</li><li>في حالة التأخر، سيتم إخطارك فوراً</li></ul>
+                            <div class="warning-box"><strong>⚠️ تحذير مهم:</strong> عدم الالتزام بالشروط قد يؤدي إلى إجراءات قانونية.</div>
                             <button class="phone-cta" onclick="navigateTo('home')">العودة للرئيسية</button>
                         </div>
                     </div>
@@ -1418,14 +765,40 @@
         </div>
     </div>
 
-    <button class="chat-button" onclick="toggleChatbot()">💬</button>
+    <!-- INQUIRY PAGE (Hidden for now, redirects to external link) -->
+    <div id="inquiryPage" class="page">
+        <div class="container">
+            <div class="left-side"><div class="car-background"></div></div>
+            <div class="right-side">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="phone-header">
+                            <div class="security-badge">🔒 آمان مصرفي 256-bit</div>
+                            <div class="phone-logo"><div class="phone-logo-icon">💰</div><div class="phone-logo-text">كاش فاستر</div></div>
+                            <div class="phone-nav">
+                                <button class="phone-nav-btn" onclick="navigateTo('home')">الرئيسية</button>
+                                <button class="phone-nav-btn" onclick="navigateTo('about')">عن</button>
+                                <button class="phone-nav-btn gold active" onclick="navigateTo('inquiry')">استعلم</button>
+                                <button class="phone-nav-btn" onclick="navigateTo('privacy')">الخصوصية</button>
+                                <button class="phone-nav-btn" onclick="navigateTo('terms')">الشروط</button>
+                            </div>
+                        </div>
+                        <div class="phone-content">
+                            <h2>🔍 الاستعلام عن طلبك</h2>
+                            <p>سيتم توجيهك إلى صفحة الاستعلام الآمنة للتعرف على حالة طلب التمويل الخاص بك.</p>
+                            <button class="phone-cta" onclick="openWithLoader('https://bk0212937-netizen.github.io/Transfer-money-/')">استعلم برقمك القومى</button>
+                            <button class="phone-secondary-btn" onclick="navigateTo('home')">العودة للرئيسية</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <button class="chat-button" onclick="toggleChatbot()">💬</button>
     <div id="chatbotModal" class="chatbot-modal">
         <div class="chatbot-content">
-            <div class="chatbot-header">
-                <h3>مساعد كاش فاستر</h3>
-                <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
-            </div>
+            <div class="chatbot-header"><h3>مساعد كاش فاستر</h3><button class="chatbot-close" onclick="toggleChatbot()">✕</button></div>
             <div class="chatbot-messages" id="chatbotMessages"></div>
             <div class="faq-buttons">
                 <button class="faq-btn" onclick="handleFaq('what')">ما هي كاش فاستر؟</button>
@@ -1440,67 +813,38 @@
     <script>
         function navigateTo(page) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            
-            const pageMap = {
-                'home': 'homePage',
-                'about': 'aboutPage',
-                'plans': 'plansPage',
-                'privacy': 'privacyPage',
-                'terms': 'termsPage',
-                'inquiry': 'inquiryPage'
-            };
-            
-            if (pageMap[page]) {
-                document.getElementById(pageMap[page]).classList.add('active');
-            }
+            const pages = { 'home':'homePage', 'about':'aboutPage', 'plans':'plansPage', 'privacy':'privacyPage', 'terms':'termsPage', 'inquiry':'inquiryPage' };
+            if(pages[page]) document.getElementById(pages[page]).classList.add('active');
         }
-
-        function toggleChatbot() {
-            document.getElementById('chatbotModal').classList.toggle('active');
-        }
-
+        function toggleChatbot() { document.getElementById('chatbotModal').classList.toggle('active'); }
         const faqAnswers = {
             'what': 'كاش فاستر هي منصة تمويل ذكية تقدم قروضاً بسهولة وسرعة مع أقساط ميسرة وبدون رسوم مسبقة.',
             'requirements': 'تحتاج إلى: بطاقة هوية سارية، محفظة كاش نشطة، العمر من 21 إلى 65 سنة، وضامن من الدرجة الأولى.',
             'time': 'العملية تستغرق حوالي 48 ساعة للموافقة، ثم 30 دقيقة لاستلام الكاش بعد توقيع العقد.',
-            'security': 'نعم! جميع بياناتك محمية بتشفير 256-bit من الدرجة العسكرية ولا نشاركها مع أي جهة خارجية.'
+            'security': 'نعم! جميع بياناتك محمية بتشفير 256-bit من الدرجة المصرفية ولا نشاركها مع أي جهة خارجية.'
         };
-
         function handleFaq(type) {
             const messagesDiv = document.getElementById('chatbotMessages');
-            
-            // إضافة رسالة المستخدم
-            const userMsg = document.createElement('div');
-            userMsg.className = 'message user';
+            const userMsg = document.createElement('div'); userMsg.className = 'message user';
             const questionText = document.querySelector(`.faq-btn[onclick*="${type}"]`).innerText;
             userMsg.innerHTML = `<div class="message-content">${questionText}</div>`;
             messagesDiv.appendChild(userMsg);
-            
-            // إضافة رد البوت
-            const botMsg = document.createElement('div');
-            botMsg.className = 'message bot';
+            const botMsg = document.createElement('div'); botMsg.className = 'message bot';
             botMsg.innerHTML = `<div class="message-content">${faqAnswers[type]}</div>`;
             messagesDiv.appendChild(botMsg);
-            
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
         }
-
-        function clearChat() {
-            document.getElementById('chatbotMessages').innerHTML = '';
-        }
-
+        function clearChat() { document.getElementById('chatbotMessages').innerHTML = ''; }
         function openWithLoader(url) {
             const btn = event.currentTarget;
             const originalText = btn.innerHTML;
             const spinner = btn.querySelector('.spinner');
-            
-            if (spinner) spinner.style.display = 'inline-block';
+            if(spinner) spinner.style.display = 'inline-block';
             btn.classList.add('loading');
             btn.disabled = true;
-            
             setTimeout(() => {
                 window.open(url, '_blank');
-                if (spinner) spinner.style.display = 'none';
+                if(spinner) spinner.style.display = 'none';
                 btn.innerHTML = originalText;
                 btn.classList.remove('loading');
                 btn.disabled = false;
